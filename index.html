@@ -55,6 +55,44 @@
         .admin-section {
             display: none;
         }
+        .bill-link {
+            color: #2a9d8f;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            z-index: 1000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .popup img {
+            max-width: 100%;
+            height: auto;
+        }
+        .popup-close {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            color: #2a9d8f;
+            cursor: pointer;
+        }
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
     </style>
     <script>
         function toggleAdminAccess() {
@@ -63,6 +101,33 @@
                 document.querySelector('.admin-section').style.display = 'block';
             } else {
                 alert("Incorrect password. Access denied.");
+            }
+        }
+
+        function showPopup(imageSrc) {
+            document.getElementById('popup-image').src = imageSrc;
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        function handleFileUpload(event, targetId) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const link = document.createElement('a');
+                    link.href = e.target.result;
+                    link.textContent = "View Bill";
+                    link.className = 'bill-link';
+                    link.onclick = function() { showPopup(e.target.result); return false; };
+                    document.getElementById(targetId).appendChild(link);
+                };
+                reader.readAsDataURL(file);
             }
         }
     </script>
@@ -87,20 +152,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td></td><td>Motors</td><td>2</td><td>6419</td><td>Online</td><td></td></tr>
-                <tr><td></td><td>Controller</td><td>2</td><td>1629</td><td>Online</td><td></td></tr>
-                <tr><td></td><td>Battery (1st Pay)</td><td></td><td>5000</td><td>Online</td><td></td></tr>
-                <tr><td></td><td>Petrol (Ranigunj)</td><td></td><td>150</td><td>Online</td><td></td></tr>
-                <tr><td></td><td>Wheels</td><td>4</td><td>2540</td><td>Offline</td><td></td></tr>
-                <tr><td></td><td>AA Batteries</td><td>8</td><td>180</td><td>Offline</td><td></td></tr>
-                <tr><td></td><td>Framework</td><td></td><td>5000</td><td>Online</td><td></td></tr>
-                <tr><td></td><td>Auto Charges</td><td>2</td><td>460</td><td>Online</td><td></td></tr>
-                <tr><td></td><td>Servo Motor</td><td>2</td><td>200</td><td>Offline</td><td></td></tr>
-                <tr><td></td><td>Driver Board</td><td>2</td><td>700</td><td>Offline</td><td></td></tr>
-                <tr><td></td><td>5v Relay</td><td>1</td><td>150</td><td>Offline</td><td></td></tr>
-                <tr><td></td><td>Transmitter & Receiver</td><td>1</td><td>2650</td><td>Offline</td><td></td></tr>
-                <tr><td></td><td>Petrol Expenses (Koti)</td><td></td><td>150</td><td>Online</td><td></td></tr>
-                <tr><td></td><td>AA Batteries</td><td>8</td><td>180</td><td>Online</td><td></td></tr>
+                <tr><td>1</td><td>Motors</td><td>2</td><td>6419</td><td>Online</td><td id="bill1"></td></tr>
+                <tr><td>2</td><td>Controller</td><td>2</td><td>1629</td><td>Online</td><td id="bill2"></td></tr>
+                <tr><td>3</td><td>Battery (1st Pay)</td><td></td><td>5000</td><td>Online</td><td id="bill3"></td></tr>
+                <tr><td>4</td><td>Petrol (Ranigunj)</td><td></td><td>150</td><td>Online</td><td id="bill4"></td></tr>
+                <tr><td>5</td><td>Wheels</td><td>4</td><td>2540</td><td>Offline</td><td id="bill5"></td></tr>
+                <tr><td>6</td><td>AA Batteries</td><td>8</td><td>180</td><td>Offline</td><td id="bill6"></td></tr>
+                <tr><td>7</td><td>Framework</td><td></td><td>5000</td><td>Online</td><td id="bill7"></td></tr>
+                <tr><td>8</td><td>Auto Charges</td><td>2</td><td>460</td><td>Online</td><td id="bill8"></td></tr>
+                <tr><td>9</td><td>Servo Motor</td><td>2</td><td>200</td><td>Offline</td><td id="bill9"></td></tr>
+                <tr><td>10</td><td>Driver Board</td><td>2</td><td>700</td><td>Offline</td><td id="bill10"></td></tr>
+                <tr><td>11</td><td>5v Relay</td><td>1</td><td>150</td><td>Offline</td><td id="bill11"></td></tr>
+                <tr><td>12</td><td>Transmitter & Receiver</td><td>1</td><td>2650</td><td>Offline</td><td id="bill12"></td></tr>
+                <tr><td>13</td><td>Petrol Expenses (Koti)</td><td></td><td>150</td><td>Online</td><td id="bill13"></td></tr>
+                <tr><td>14</td><td>AA Batteries</td><td>8</td><td>180</td><td>Online</td><td id="bill14"></td></tr>
                 <tr class="total"><td colspan="5">Total</td><td>₹25408</td></tr>
             </tbody>
         </table>
@@ -118,25 +183,34 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td></td><td>WiFi Router</td><td>1</td><td>2500</td><td></td><td></td></tr>
-                <tr><td></td><td>Petrol Expense (Kukatpally)</td><td></td><td>200</td><td></td><td></td></tr>
-                <tr><td></td><td>Lead (For College)</td><td></td><td>80</td><td></td><td></td></tr>
-                <tr><td></td><td>Dustbin Auto Charges (Transport)</td><td></td><td>307</td><td></td><td></td></tr>
+                <tr><td>1</td><td>WiFi Router</td><td>1</td><td>2500</td><td></td><td id="bill15"></td></tr>
+                <tr><td>2</td><td>Petrol Expense (Kukatpally)</td><td></td><td>200</td><td></td><td id="bill16"></td></tr>
+                <tr><td>3</td><td>Lead (For College)</td><td></td><td>80</td><td></td><td id="bill17"></td></tr>
+                "></td><td>Dustbin Auto Charges (Transport)</td><td></td><td>307</td><td></td><td id="bill18"></td></tr>
                 <tr class="total"><td colspan="5">Total</td><td>₹3087</td></tr>
             </tbody>
         </table>
 
-        <button onclick="toggleAdminAccess()">Admin Access</button>
-
         <div class="admin-section">
             <h2>Admin Section</h2>
-            <p>Here you can add, edit, or delete data.</p>
-            <!-- Additional admin functionalities can be added here -->
+            <p>Upload Bills:</p>
+            <input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill1')"> <label for="bill1">Motors</label><br>
+            <input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill2')"> <label for="bill2">Controller</label><br>
+            <input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill3')"> <label for="bill3">Battery (1st Pay)</label><br>
+            <!-- Add similar file inputs for other bills -->
         </div>
     </div>
 
+    <div id="overlay" onclick="closePopup()"></div>
+    <div id="popup" class="popup">
+        <img id="popup-image" alt="Bill">
+        <span class="popup-close" onclick="closePopup()">Close</span>
+    </div>
+
     <footer>
-        <p>&copy; 2024 EEE Lawn Mower Project</p>
+        <p>EEE Lawn Mower Project © 2024</p>
+        <button onclick="toggleAdminAccess()">Admin Login</button>
     </footer>
 </body>
 </html>
+
