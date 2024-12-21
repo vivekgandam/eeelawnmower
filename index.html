@@ -52,9 +52,6 @@
             bottom: 0;
             width: 100%;
         }
-        .admin-section {
-            display: none;
-        }
         .bill-link {
             color: #2a9d8f;
             text-decoration: underline;
@@ -95,15 +92,6 @@
         }
     </style>
     <script>
-        function toggleAdminAccess() {
-            const password = prompt("Enter admin password:");
-            if (password === "EEELawnAdmin2024") {
-                document.querySelector('.admin-section').style.display = 'block';
-            } else {
-                alert("Incorrect password. Access denied.");
-            }
-        }
-
         function showPopup(imageSrc) {
             document.getElementById('popup-image').src = imageSrc;
             document.getElementById('popup').style.display = 'block';
@@ -125,6 +113,7 @@
                     link.textContent = "View Bill";
                     link.className = 'bill-link';
                     link.onclick = function() { showPopup(e.target.result); return false; };
+                    document.getElementById(targetId).innerHTML = '';  // Clear existing content
                     document.getElementById(targetId).appendChild(link);
                 };
                 reader.readAsDataURL(file);
@@ -152,20 +141,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td>1</td><td>Motors</td><td>2</td><td>6419</td><td>Online</td><td id="bill1"></td></tr>
-                <tr><td>2</td><td>Controller</td><td>2</td><td>1629</td><td>Online</td><td id="bill2"></td></tr>
-                <tr><td>3</td><td>Battery (1st Pay)</td><td></td><td>5000</td><td>Online</td><td id="bill3"></td></tr>
-                <tr><td>4</td><td>Petrol (Ranigunj)</td><td></td><td>150</td><td>Online</td><td id="bill4"></td></tr>
-                <tr><td>5</td><td>Wheels</td><td>4</td><td>2540</td><td>Offline</td><td id="bill5"></td></tr>
-                <tr><td>6</td><td>AA Batteries</td><td>8</td><td>180</td><td>Offline</td><td id="bill6"></td></tr>
-                <tr><td>7</td><td>Framework</td><td></td><td>5000</td><td>Online</td><td id="bill7"></td></tr>
-                <tr><td>8</td><td>Auto Charges</td><td>2</td><td>460</td><td>Online</td><td id="bill8"></td></tr>
-                <tr><td>9</td><td>Servo Motor</td><td>2</td><td>200</td><td>Offline</td><td id="bill9"></td></tr>
-                <tr><td>10</td><td>Driver Board</td><td>2</td><td>700</td><td>Offline</td><td id="bill10"></td></tr>
-                <tr><td>11</td><td>5v Relay</td><td>1</td><td>150</td><td>Offline</td><td id="bill11"></td></tr>
-                <tr><td>12</td><td>Transmitter & Receiver</td><td>1</td><td>2650</td><td>Offline</td><td id="bill12"></td></tr>
-                <tr><td>13</td><td>Petrol Expenses (Koti)</td><td></td><td>150</td><td>Online</td><td id="bill13"></td></tr>
-                <tr><td>14</td><td>AA Batteries</td><td>8</td><td>180</td><td>Online</td><td id="bill14"></td></tr>
+                <tr><td>1</td><td>Motors</td><td>2</td><td>6419</td><td>Online</td><td id="bill1"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill1')"> <span>Click here</span></td></tr>
+                <tr><td>2</td><td>Controller</td><td>2</td><td>1629</td><td>Online</td><td id="bill2"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill2')"> <span>Click here</span></td></tr>
+                <tr><td>3</td><td>Battery (1st Pay)</td><td></td><td>5000</td><td>Online</td><td id="bill3"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill3')"> <span>Click here</span></td></tr>
+                <tr><td>4</td><td>Petrol (Ranigunj)</td><td></td><td>150</td><td>Online</td><td id="bill4"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill4')"> <span>Click here</span></td></tr>
+                <tr><td>5</td><td>Wheels</td><td>4</td><td>2540</td><td>Offline</td><td id="bill5"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill5')"> <span>Click here</span></td></tr>
+                <tr><td>6</td><td>AA Batteries</td><td>8</td><td>180</td><td>Offline</td><td id="bill6"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill6')"> <span>Click here</span></td></tr>
+                <tr><td>7</td><td>Framework</td><td></td><td>5000</td><td>Online</td><td id="bill7"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill7')"> <span>Click here</span></td></tr>
+                <tr><td>8</td><td>Auto Charges</td><td>2</td><td>460</td><td>Online</td><td id="bill8"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill8')"> <span>Click here</span></td></tr>
+                <tr><td>9</td><td>Servo Motor</td><td>2</td><td>200</td><td>Offline</td><td id="bill9"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill9')"> <span>Click here</span></td></tr>
+                <tr><td>10</td><td>Driver Board</td><td>2</td><td>700</td><td>Offline</td><td id="bill10"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill10')"> <span>Click here</span></td></tr>
+                <tr><td>11</td><td>5v Relay</td><td>1</td><td>150</td><td>Offline</td><td id="bill11"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill11')"> <span>Click here</span></td></tr>
+                <tr><td>12</td><td>Transmitter & Receiver</td><td>1</td><td>2650</td><td>Offline</td><td id="bill12"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill12')"> <span>Click here</span></td></tr>
+                <tr><td>13</td><td>Petrol Expenses (Koti)</td><td></td><td>150</td><td>Online</td><td id="bill13"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill13')"> <span>Click here</span></td></tr>
+                <tr><td>14</td><td>AA Batteries</td><td>8</td><td>180</td><td>Online</td><td id="bill14"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill14')"> <span>Click here</span></td></tr>
                 <tr class="total"><td colspan="5">Total</td><td>₹25408</td></tr>
             </tbody>
         </table>
@@ -183,22 +172,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td>1</td><td>WiFi Router</td><td>1</td><td>2500</td><td></td><td id="bill15"></td></tr>
-                <tr><td>2</td><td>Petrol Expense (Kukatpally)</td><td></td><td>200</td><td></td><td id="bill16"></td></tr>
-                <tr><td>3</td><td>Lead (For College)</td><td></td><td>80</td><td></td><td id="bill17"></td></tr>
-                "></td><td>Dustbin Auto Charges (Transport)</td><td></td><td>307</td><td></td><td id="bill18"></td></tr>
+                <tr><td>1</td><td>WiFi Router</td><td>1</td><td>2500</td><td></td><td id="bill15"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill15')"> <span>Click here</span></td></tr>
+                <tr><td>2</td><td>Petrol Expense (Kukatpally)</td><td></td><td>200</td><td></td><td id="bill16"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill16')"> <span>Click here</span></td></tr>
+                <tr><td>3</td><td>Lead (For College)</td><td></td><td>80</td><td></td><td id="bill17"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill17')"> <span>Click here</span></td></tr>
+                <tr><td>4</td><td>Dustbin Auto Charges (Transport)</td><td></td><td>307</td><td></td><td id="bill18"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill18')"> <span>Click here</span></td></tr>
                 <tr class="total"><td colspan="5">Total</td><td>₹3087</td></tr>
             </tbody>
         </table>
-
-        <div class="admin-section">
-            <h2>Admin Section</h2>
-            <p>Upload Bills:</p>
-            <input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill1')"> <label for="bill1">Motors</label><br>
-            <input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill2')"> <label for="bill2">Controller</label><br>
-            <input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill3')"> <label for="bill3">Battery (1st Pay)</label><br>
-            <!-- Add similar file inputs for other bills -->
-        </div>
     </div>
 
     <div id="overlay" onclick="closePopup()"></div>
@@ -209,10 +189,6 @@
 
     <footer>
         <p>EEE Lawn Mower Project © 2024</p>
-        <button onclick="toggleAdminAccess()">Admin Login</button>
     </footer>
 </body>
 </html>
-
-
-
