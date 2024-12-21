@@ -91,30 +91,34 @@
             z-index: 999;
         }
 
-        /* New scrolling line style */
+        /* Scrolling Line Styles */
         .scrolling-line {
+            position: fixed;
+            top: 0;
+            width: 100%;
             background-color: #264653;
-            color: #fff;
-            font-size: 18px;
-            font-weight: bold;
+            color: white;
             padding: 10px 0;
-            position: relative;
-            white-space: nowrap;
-            overflow: hidden;
+            font-size: 16px;
+            text-align: center;
+            z-index: 100;
         }
+
         .scrolling-line span {
             display: inline-block;
             padding-left: 100%;
-            animation: scroll 15s linear infinite;
+            animation: scroll 30s linear infinite; /* Slower scroll speed (30 seconds) */
         }
+
         @keyframes scroll {
             0% {
-                transform: translateX(0);
+                transform: translateX(100%);
             }
             100% {
                 transform: translateX(-100%);
             }
         }
+
     </style>
     <script>
         function showPopup(imageSrc) {
@@ -147,15 +151,15 @@
     </script>
 </head>
 <body>
+    <!-- Scrolling Line -->
+    <div class="scrolling-line">
+        <span>TOTAL AMT. COLLECTED: Rs. 36000   AMT. SPENT ON PURCHASES: Rs. 28495   AMT. IN HAND: Rs. 7505</span>
+    </div>
+
     <header>
         <h1>EEE Lawn Mower Project</h1>
         <p>Track expenses and updates for the project</p>
     </header>
-
-    <!-- Scrolling Line Section -->
-    <div class="scrolling-line">
-        <span>TOTAL AMT. COLLECTED: Rs. 36000 | AMT. SPENT ON PURCHASES: Rs. 28495 | AMT. IN HAND: Rs. 7505</span>
-    </div>
 
     <div class="container">
         <h2>Main Purchases</h2>
@@ -204,22 +208,25 @@
             <tbody>
                 <tr><td>1</td><td>WiFi Router</td><td>1</td><td>2500</td><td></td><td id="bill15"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill15')"> <span>Click here</span></td></tr>
                 <tr><td>2</td><td>Petrol Expense (Kukatpally)</td><td></td><td>200</td><td></td><td id="bill16"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill16')"> <span>Click here</span></td></tr>
-                <tr><td>3</td><td>Lead (For College)</td><td></td><td>80</td><td></td><td id="bill17"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill17')"> <span>Click here</span></td></tr>
-                <tr><td>4</td><td>Dustbin Auto Charges (Transport)</td><td></td><td>307</td><td></td><td id="bill18"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill18')"> <span>Click here</span></td></tr>
-                <tr class="total"><td colspan="5">Total</td><td>₹3087</td></tr>
+                <tr><td>3</td><td>Lead (For College)</td><td>1</td><td>200</td><td></td><td id="bill17"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill17')"> <span>Click here</span></td></tr>
+                <tr><td>4</td><td>Loan</td><td>1</td><td>10000</td><td></td><td id="bill18"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill18')"> <span>Click here</span></td></tr>
+                <tr><td>5</td><td>Battery Backup</td><td>1</td><td>4000</td><td></td><td id="bill19"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill19')"> <span>Click here</span></td></tr>
+                <tr class="total"><td colspan="5">Total</td><td>₹20000</td></tr>
             </tbody>
         </table>
     </div>
 
-    <div id="overlay" onclick="closePopup()"></div>
-    <div id="popup" class="popup">
-        <img id="popup-image" alt="Bill">
-        <span class="popup-close" onclick="closePopup()">Close</span>
-    </div>
-
     <footer>
-        <p>EEE Lawn Mower Project © 2024</p>
+        <p>&copy; 2024 EEE Lawn Mower Project</p>
     </footer>
+
+    <!-- Popup for Bill -->
+    <div id="overlay"></div>
+    <div id="popup" class="popup">
+        <img id="popup-image" src="" alt="Bill Image">
+        <div class="popup-close" onclick="closePopup()">Close</div>
+    </div>
 </body>
 </html>
+
 
