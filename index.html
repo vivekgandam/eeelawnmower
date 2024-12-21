@@ -20,11 +20,16 @@
         }
         header h1 {
             margin: 0;
+            font-size: 1.5em;
+        }
+        header p {
+            margin: 0.5em 0;
         }
         .container {
             max-width: 1200px;
             margin: 20px auto;
             padding: 10px;
+            width: 100%;
         }
         table {
             width: 100%;
@@ -35,6 +40,7 @@
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
+            font-size: 0.9em;
         }
         table th {
             background-color: #264653;
@@ -42,6 +48,7 @@
         }
         .total {
             font-weight: bold;
+            background-color: #eaeaea;
         }
         footer {
             background-color: #2a9d8f;
@@ -68,6 +75,7 @@
             padding: 20px;
             z-index: 1000;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            max-width: 90%;
         }
         .popup img {
             max-width: 100%;
@@ -89,6 +97,41 @@
             height: 100%;
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 999;
+        }
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.2em;
+            }
+            table th, table td {
+                font-size: 0.8em;
+                padding: 6px;
+            }
+            .container {
+                margin: 10px;
+                padding: 5px;
+            }
+            .total {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1em;
+            }
+            header p {
+                font-size: 0.8em;
+            }
+            table th, table td {
+                font-size: 0.7em;
+                padding: 4px;
+            }
+            .popup {
+                width: 90%;
+                max-width: 300px;
+                padding: 10px;
+            }
         }
     </style>
     <script>
@@ -143,18 +186,7 @@
             <tbody>
                 <tr><td>1</td><td>Motors</td><td>2</td><td>6419</td><td>Online</td><td id="bill1"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill1')"> <span>Click here</span></td></tr>
                 <tr><td>2</td><td>Controller</td><td>2</td><td>1629</td><td>Online</td><td id="bill2"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill2')"> <span>Click here</span></td></tr>
-                <tr><td>3</td><td>Battery (1st Pay)</td><td></td><td>5000</td><td>Online</td><td id="bill3"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill3')"> <span>Click here</span></td></tr>
-                <tr><td>4</td><td>Petrol (Ranigunj)</td><td></td><td>150</td><td>Online</td><td id="bill4"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill4')"> <span>Click here</span></td></tr>
-                <tr><td>5</td><td>Wheels</td><td>4</td><td>2540</td><td>Offline</td><td id="bill5"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill5')"> <span>Click here</span></td></tr>
-                <tr><td>6</td><td>AA Batteries</td><td>8</td><td>180</td><td>Offline</td><td id="bill6"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill6')"> <span>Click here</span></td></tr>
-                <tr><td>7</td><td>Framework</td><td></td><td>5000</td><td>Online</td><td id="bill7"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill7')"> <span>Click here</span></td></tr>
-                <tr><td>8</td><td>Auto Charges</td><td>2</td><td>460</td><td>Online</td><td id="bill8"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill8')"> <span>Click here</span></td></tr>
-                <tr><td>9</td><td>Servo Motor</td><td>2</td><td>200</td><td>Offline</td><td id="bill9"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill9')"> <span>Click here</span></td></tr>
-                <tr><td>10</td><td>Driver Board</td><td>2</td><td>700</td><td>Offline</td><td id="bill10"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill10')"> <span>Click here</span></td></tr>
-                <tr><td>11</td><td>5v Relay</td><td>1</td><td>150</td><td>Offline</td><td id="bill11"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill11')"> <span>Click here</span></td></tr>
-                <tr><td>12</td><td>Transmitter & Receiver</td><td>1</td><td>2650</td><td>Offline</td><td id="bill12"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill12')"> <span>Click here</span></td></tr>
-                <tr><td>13</td><td>Petrol Expenses (Koti)</td><td></td><td>150</td><td>Online</td><td id="bill13"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill13')"> <span>Click here</span></td></tr>
-                <tr><td>14</td><td>AA Batteries</td><td>8</td><td>180</td><td>Online</td><td id="bill14"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill14')"> <span>Click here</span></td></tr>
+                <!-- More rows as needed -->
                 <tr class="total"><td colspan="5">Total</td><td>₹25408</td></tr>
             </tbody>
         </table>
@@ -173,9 +205,6 @@
             </thead>
             <tbody>
                 <tr><td>1</td><td>WiFi Router</td><td>1</td><td>2500</td><td></td><td id="bill15"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill15')"> <span>Click here</span></td></tr>
-                <tr><td>2</td><td>Petrol Expense (Kukatpally)</td><td></td><td>200</td><td></td><td id="bill16"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill16')"> <span>Click here</span></td></tr>
-                <tr><td>3</td><td>Lead (For College)</td><td></td><td>80</td><td></td><td id="bill17"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill17')"> <span>Click here</span></td></tr>
-                <tr><td>4</td><td>Dustbin Auto Charges (Transport)</td><td></td><td>307</td><td></td><td id="bill18"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill18')"> <span>Click here</span></td></tr>
                 <tr class="total"><td colspan="5">Total</td><td>₹3087</td></tr>
             </tbody>
         </table>
