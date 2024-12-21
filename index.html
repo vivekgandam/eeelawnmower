@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EEE Lawn Mower</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #2a9d8f;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        table th {
+            background-color: #264653;
+            color: white;
+        }
+        .total {
+            font-weight: bold;
+        }
+        footer {
+            background-color: #2a9d8f;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .admin-section {
+            display: none;
+        }
+    </style>
+    <script>
+        function toggleAdminAccess() {
+            const password = prompt("Enter admin password:");
+            if (password === "EEELawnAdmin2024") {
+                document.querySelector('.admin-section').style.display = 'block';
+            } else {
+                alert("Incorrect password. Access denied.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>EEE Lawn Mower Project</h1>
+        <p>Track expenses and updates for the project</p>
+    </header>
+
+    <div class="container">
+        <h2>Main Purchases</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>S.no</th>
+                    <th>Item</th>
+                    <th>QTY</th>
+                    <th>Amount (₹)</th>
+                    <th>Mode of Payment</th>
+                    <th>Bill</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td></td><td>Motors</td><td>2</td><td>6419</td><td>Online</td><td></td></tr>
+                <tr><td></td><td>Controller</td><td>2</td><td>1629</td><td>Online</td><td></td></tr>
+                <tr><td></td><td>Battery (1st Pay)</td><td></td><td>5000</td><td>Online</td><td></td></tr>
+                <tr><td></td><td>Petrol (Ranigunj)</td><td></td><td>150</td><td>Online</td><td></td></tr>
+                <tr><td></td><td>Wheels</td><td>4</td><td>2540</td><td>Offline</td><td></td></tr>
+                <tr><td></td><td>AA Batteries</td><td>8</td><td>180</td><td>Offline</td><td></td></tr>
+                <tr><td></td><td>Framework</td><td></td><td>5000</td><td>Online</td><td></td></tr>
+                <tr><td></td><td>Auto Charges</td><td>2</td><td>460</td><td>Online</td><td></td></tr>
+                <tr><td></td><td>Servo Motor</td><td>2</td><td>200</td><td>Offline</td><td></td></tr>
+                <tr><td></td><td>Driver Board</td><td>2</td><td>700</td><td>Offline</td><td></td></tr>
+                <tr><td></td><td>5v Relay</td><td>1</td><td>150</td><td>Offline</td><td></td></tr>
+                <tr><td></td><td>Transmitter & Receiver</td><td>1</td><td>2650</td><td>Offline</td><td></td></tr>
+                <tr><td></td><td>Petrol Expenses (Koti)</td><td></td><td>150</td><td>Online</td><td></td></tr>
+                <tr><td></td><td>AA Batteries</td><td>8</td><td>180</td><td>Online</td><td></td></tr>
+                <tr class="total"><td colspan="5">Total</td><td>₹25408</td></tr>
+            </tbody>
+        </table>
+
+        <h2>Other Purchases</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>S.no</th>
+                    <th>Item</th>
+                    <th>QTY</th>
+                    <th>Amount (₹)</th>
+                    <th>Mode of Payment</th>
+                    <th>Bill</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td></td><td>WiFi Router</td><td>1</td><td>2500</td><td></td><td></td></tr>
+                <tr><td></td><td>Petrol Expense (Kukatpally)</td><td></td><td>200</td><td></td><td></td></tr>
+                <tr><td></td><td>Lead (For College)</td><td></td><td>80</td><td></td><td></td></tr>
+                <tr><td></td><td>Dustbin Auto Charges (Transport)</td><td></td><td>307</td><td></td><td></td></tr>
+                <tr class="total"><td colspan="5">Total</td><td>₹3087</td></tr>
+            </tbody>
+        </table>
+
+        <button onclick="toggleAdminAccess()">Admin Access</button>
+
+        <div class="admin-section">
+            <h2>Admin Section</h2>
+            <p>Here you can add, edit, or delete data.</p>
+            <!-- Additional admin functionalities can be added here -->
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 EEE Lawn Mower Project</p>
+    </footer>
+</body>
+</html>
