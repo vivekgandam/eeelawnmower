@@ -91,29 +91,34 @@
             z-index: 999;
         }
 
+        /* Scrolling Line Styles */
         .scrolling-line {
+            position: fixed;
+            top: 0;
+            width: 100%;
             background-color: #264653;
-            color: #fff;
-            font-size: 18px;
-            font-weight: bold;
+            color: white;
             padding: 10px 0;
-            position: relative;
-            white-space: nowrap;
-            overflow: hidden;
+            font-size: 16px;
+            text-align: center;
+            z-index: 100;
         }
+
         .scrolling-line span {
             display: inline-block;
             padding-left: 100%;
-            animation: scroll 15s linear infinite;
+            animation: scroll 30s linear infinite; /* Slower scroll speed (30 seconds) */
         }
+
         @keyframes scroll {
             0% {
-                transform: translateX(0);
+                transform: translateX(100%);
             }
             100% {
                 transform: translateX(-100%);
             }
         }
+
     </style>
     <script>
         function showPopup(imageSrc) {
@@ -137,7 +142,7 @@
                     link.textContent = "View Bill";
                     link.className = 'bill-link';
                     link.onclick = function() { showPopup(e.target.result); return false; };
-                    document.getElementById(targetId).innerHTML = '';  
+                    document.getElementById(targetId).innerHTML = '';  // Clear existing content
                     document.getElementById(targetId).appendChild(link);
                 };
                 reader.readAsDataURL(file);
@@ -146,14 +151,15 @@
     </script>
 </head>
 <body>
+    <!-- Scrolling Line -->
+    <div class="scrolling-line">
+        <span>TOTAL AMT. COLLECTED: Rs. 36000   AMT. SPENT ON PURCHASES: Rs. 28495   AMT. IN HAND: Rs. 7505</span>
+    </div>
+
     <header>
         <h1>EEE Lawn Mower Project</h1>
         <p>Track expenses and updates for the project</p>
     </header>
-
-    <div class="scrolling-line">
-        <span>TOTAL AMT. COLLECTED: Rs. 36000 | AMT. SPENT ON PURCHASES: Rs. 37369 | AMT. IN HAND: Rs. 0</span>
-    </div>
 
     <div class="container">
         <h2>Main Purchases</h2>
@@ -169,40 +175,26 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td>1</td><td>Solar Panels</td><td>3</td><td>15,000</td><td>Online</td><td></td></tr>
-                <tr><td>2</td><td>Motor Driver</td><td>2</td><td>4,000</td><td>Cash</td><td></td></tr>
-                <tr><td>3</td><td>Batteries</td><td>2</td><td>9,616</td><td>Online</td><td></td></tr>
-                <tr><td>4</td><td>Mechanical Parts</td><td>Multiple</td><td>10,000</td><td>Cash</td><td></td></tr>
-                <tr><td>5</td><td>PCB</td><td>1</td><td>2,753</td><td>Online</td><td></td></tr>
-                <tr><td>15</td><td>battery(2nd pay)</td><td>-</td><td>9,616</td><td>Online</td><td></td></tr>
-                <tr><td>16</td><td>bat. transport</td><td>-</td><td>285</td><td>Online</td><td></td></tr>
-                <tr class="total"><td colspan="5">Total</td><td>₹35,309</td></tr>
-            </tbody>
-        </table>
-
-        <h2>Other Purchases</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>S.no</th>
-                    <th>Item</th>
-                    <th>QTY</th>
-                    <th>Amount (₹)</th>
-                    <th>Mode of Payment</th>
-                    <th>Bill</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td>1</td><td>WiFi Router</td><td>1</td><td>1,500</td><td>Online</td><td></td></tr>
-                <tr><td>2</td><td>Transport</td><td>-</td><td>285</td><td>Cash</td><td></td></tr>
-                <tr class="total"><td colspan="5">Total</td><td>₹2,087</td></tr>
+                <tr><td>1</td><td>Motors</td><td>2</td><td>6419</td><td>Online</td><td id="bill1"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill1')"> <span>Click here</span></td></tr>
+                <tr><td>2</td><td>Controller</td><td>2</td><td>1629</td><td>Online</td><td id="bill2"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill2')"> <span>Click here</span></td></tr>
+                <tr><td>3</td><td>Battery (1st Pay)</td><td></td><td>5000</td><td>Online</td><td id="bill3"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill3')"> <span>Click here</span></td></tr>
+                <tr><td>4</td><td>Petrol (Ranigunj)</td><td></td><td>150</td><td>Online</td><td id="bill4"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill4')"> <span>Click here</span></td></tr>
+                <tr><td>5</td><td>Wheels</td><td>4</td><td>2540</td><td>Offline</td><td id="bill5"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill5')"> <span>Click here</span></td></tr>
+                <tr><td>6</td><td>AA Batteries</td><td>8</td><td>180</td><td>Offline</td><td id="bill6"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill6')"> <span>Click here</span></td></tr>
+                <tr><td>7</td><td>Framework</td><td></td><td>5000</td><td>Online</td><td id="bill7"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill7')"> <span>Click here</span></td></tr>
+                <tr><td>8</td><td>Auto Charges</td><td>2</td><td>460</td><td>Online</td><td id="bill8"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill8')"> <span>Click here</span></td></tr>
+                <tr><td>9</td><td>Servo Motor</td><td>2</td><td>200</td><td>Offline</td><td id="bill9"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill9')"> <span>Click here</span></td></tr>
+                <tr><td>10</td><td>Driver Board</td><td>2</td><td>700</td><td>Offline</td><td id="bill10"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill10')"> <span>Click here</span></td></tr>
+                <tr><td>11</td><td>5v Relay</td><td>1</td><td>150</td><td>Offline</td><td id="bill11"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill11')"> <span>Click here</span></td></tr>
+                <tr><td>12</td><td>Transmitter & Receiver</td><td>1</td><td>2650</td><td>Offline</td><td id="bill12"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill12')"> <span>Click here</span></td></tr>
+                <tr><td>13</td><td>Petrol Expenses (Koti)</td><td></td><td>1000</td><td>Offline</td><td id="bill13"><input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill13')"> <span>Click here</span></td></tr>
             </tbody>
         </table>
     </div>
 
     <div id="overlay" onclick="closePopup()"></div>
-    <div id="popup" class="popup">
-        <img id="popup-image" alt="Bill">
+    <div class="popup" id="popup">
+        <img id="popup-image" alt="Bill Image">
         <span class="popup-close" onclick="closePopup()">Close</span>
     </div>
 
