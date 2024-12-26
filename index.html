@@ -104,7 +104,8 @@
         }
         .scrolling-line span {
             position: absolute;
-            animation: scroll-text 10s linear infinite;
+            min-width: 100%; /* Ensures text stretches out */
+            animation: scroll-text 20s linear infinite;
         }
         @keyframes scroll-text {
             from {
