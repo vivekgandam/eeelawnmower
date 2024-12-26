@@ -103,17 +103,16 @@
             position: relative;
         }
         .scrolling-line span {
-            position: absolute;
+            display: inline-block;
             white-space: nowrap;
-            animation: scroll-text 30s linear infinite; /* Increased animation speed */
-            padding-right: 100%; /* Ensures enough space for the text to move across */
+            animation: scroll-text 30s linear infinite;
         }
         @keyframes scroll-text {
             from {
-                left: 100%;
+                transform: translateX(100%);
             }
             to {
-                left: -100%;
+                transform: translateX(-100%);
             }
         }
     </style>
@@ -203,23 +202,4 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><td>1</td><td>WiFi Router</td><td>1</td><td>1500</td><td></td><td id="bill15"></td></tr>
-                <tr><td>2</td><td>Petrol Expense (Kukatpally)</td><td></td><td>200</td><td></td><td id="bill16"></td></tr>
-                <tr><td>3</td><td>Lead (For College)</td><td>1</td><td>80</td><td></td><td id="bill17"></td></tr>
-                <tr><td>4</td><td>Dustbin Auto Charges (Transport)</td><td></td><td>307</td><td></td><td id="bill18"></td></tr>
-                <tr class="total"><td colspan="5">Total</td><td>₹2087</td></tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div id="overlay" onclick="closePopup()"></div>
-    <div id="popup" class="popup">
-        <img id="popup-image" alt="Bill">
-        <span class="popup-close" onclick="closePopup()">Close</span>
-    </div>
-
-    <footer>
-        <p>EEE Lawn Mower Project © 2024</p>
-    </footer>
-</body>
-</html>
+[_{{{CITATION{{{_1{](https://github.com/buribalazs/smooth-drag-order/tree/7b40d21d076c3e31765f61481f537beaf4c5ec9f/README.md)
