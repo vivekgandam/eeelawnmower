@@ -52,9 +52,6 @@
             bottom: 0;
             width: 100%;
         }
-        .admin-section {
-            display: none;
-        }
         .bill-link {
             color: #2a9d8f;
             text-decoration: underline;
@@ -95,15 +92,6 @@
         }
     </style>
     <script>
-        function toggleAdminAccess() {
-            const password = prompt("Enter admin password:");
-            if (password === "EEELawnAdmin2024") {
-                document.querySelector('.admin-section').style.display = 'block';
-            } else {
-                alert("Incorrect password. Access denied.");
-            }
-        }
-
         function showPopup(imageSrc) {
             document.getElementById('popup-image').src = imageSrc;
             document.getElementById('popup').style.display = 'block';
@@ -186,19 +174,10 @@
                 <tr><td>1</td><td>WiFi Router</td><td>1</td><td>2500</td><td></td><td id="bill15"></td></tr>
                 <tr><td>2</td><td>Petrol Expense (Kukatpally)</td><td></td><td>200</td><td></td><td id="bill16"></td></tr>
                 <tr><td>3</td><td>Lead (For College)</td><td></td><td>80</td><td></td><td id="bill17"></td></tr>
-                "></td><td>Dustbin Auto Charges (Transport)</td><td></td><td>307</td><td></td><td id="bill18"></td></tr>
+                <tr><td>4</td><td>Dustbin Auto Charges (Transport)</td><td></td><td>307</td><td></td><td id="bill18"></td></tr>
                 <tr class="total"><td colspan="5">Total</td><td>₹3087</td></tr>
             </tbody>
         </table>
-
-        <div class="admin-section">
-            <h2>Admin Section</h2>
-            <p>Upload Bills:</p>
-            <input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill1')"> <label for="bill1">Motors</label><br>
-            <input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill2')"> <label for="bill2">Controller</label><br>
-            <input type="file" accept="image/*" onchange="handleFileUpload(event, 'bill3')"> <label for="bill3">Battery (1st Pay)</label><br>
-            <!-- Add similar file inputs for other bills -->
-        </div>
     </div>
 
     <div id="overlay" onclick="closePopup()"></div>
@@ -209,8 +188,6 @@
 
     <footer>
         <p>EEE Lawn Mower Project © 2024</p>
-        <button onclick="toggleAdminAccess()">Admin Login</button>
     </footer>
 </body>
 </html>
-
