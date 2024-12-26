@@ -90,6 +90,31 @@
             background-color: rgba(0, 0, 0, 0.5);
             z-index: 999;
         }
+
+        /* New Scrolling Line */
+        .scrolling-line {
+            background-color: #2a9d8f;
+            color: white;
+            font-weight: bold;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+        }
+        .scrolling-line span {
+            display: inline-block;
+            animation: scroll 20s linear infinite;
+        }
+
+        /* Animation for scrolling */
+        @keyframes scroll {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
     </style>
     <script>
         function showPopup(imageSrc) {
@@ -125,6 +150,11 @@
         <h1>EEE Lawn Mower Project</h1>
         <p>Track expenses and updates for the project</p>
     </header>
+
+    <!-- Scrolling Line -->
+    <div class="scrolling-line">
+        <span>AMT. COLLECTED = 36000 , AMT. SPENT 37396 , AMT. IN HAND = 0</span>
+    </div>
 
     <div class="container">
         <h2>Main Purchases</h2>
