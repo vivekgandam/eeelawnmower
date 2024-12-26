@@ -98,14 +98,15 @@
             font-weight: normal;
             white-space: nowrap;
             overflow: hidden;
-            width: 100%; /* Increased width to 100% to fill the container */
+            width: 100vw; /* Set width to 100% of the viewport */
             box-sizing: border-box;
             position: relative;
         }
         .scrolling-line span {
             position: absolute;
-            min-width: 100%; /* Ensures text stretches out */
-            animation: scroll-text 20s linear infinite;
+            white-space: nowrap;
+            animation: scroll-text 30s linear infinite; /* Increased animation speed */
+            padding-right: 100%; /* Ensures enough space for the text to move across */
         }
         @keyframes scroll-text {
             from {
