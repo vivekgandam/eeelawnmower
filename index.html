@@ -1,254 +1,478 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EEE Lawn Mower Project</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EEE Lawn Mower</title>
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f4f8;
-            color: #333;
-            line-height: 1.6;
-        }
-        header {
-            background-color: #005f73;
-            color: #fff;
-            text-align: center;
-            padding: 2em 1.5em;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-        header h1 {
-            margin: 0;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3em;
-            letter-spacing: 2px;
-        }
-        header p {
-            margin: 10px 0;
-            font-size: 1.2em;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 30px auto;
-            padding: 20px;
-            text-align: center;
-        }
-        .selection-box {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 50px;
-        }
-        .selection-box button {
-            background-color: #2a9d8f;
-            color: white;
-            padding: 15px 25px;
-            font-size: 1.2em;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .selection-box button:hover {
-            background-color: #21867a;
-            transform: translateY(-3px);
-        }
-        .card {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-top: 30px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-        }
-        .card h2 {
-            font-size: 2em;
-            color: #005f73;
-            margin-bottom: 20px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            font-size: 1.1em;
-        }
-        table th, table td {
-            border: 1px solid #ddd;
-            padding: 12px;
-            text-align: left;
-        }
-        table th {
-            background-color: #2a9d8f;
-            color: white;
-            font-weight: 600;
-        }
-        .total {
-            font-weight: bold;
-            background-color: #e9f7f6;
-            text-align: right;
-            font-size: 1.3em;
-        }
-        .total td {
-            font-size: 1.4em;
-        }
-        .bill-link {
-            color: #2a9d8f;
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .bill-link:hover {
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            padding: 25px;
-            background-color: #2a9d8f;
-            color: white;
-            position: sticky;
-            bottom: 0;
-            width: 100%;
-        }
-        .scrolling-text {
-            font-size: 20px;
-            color: #fff;
-            font-weight: bold;
-            white-space: nowrap;
-            position: fixed;
-            top: 80px;
-            left: 0;
-            width: 100%;
-            overflow: hidden;
-            background-color: #005f73;
-            padding: 10px 0;
-        }
-        .scrolling-text span {
-            display: inline-block;
-            animation: scroll 12s linear infinite;
-        }
-        @keyframes scroll {
-            from {
-                transform: translateX(100%);
-            }
-            to {
-                transform: translateX(-100%);
-            }
-        }
-        .table-container {
-            overflow-x: auto;
-        }
-    </style>
-    <script>
-        function showContent(type) {
-            document.getElementById('content').style.display = 'block';
-            document.getElementById('main-purchases').style.display = type === 'main' ? 'block' : 'none';
-            document.getElementById('other-purchases').style.display = type === 'other' ? 'block' : 'none';
-            document.getElementById('scrolling-line').style.display = 'block'; // Show the scrolling text
-        }
-    </script>
-</head>
-<body>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
+      html,
+      body {
+        width: 100%;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+      }
+
+      header,
+      footer {
+        background-color: #2a8f83;
+        color: white;
+        text-align: center;
+        width: 100vw;
+        padding: 20px;
+      }
+
+      header {
+        margin-bottom: 20px;
+      }
+
+      footer {
+        margin-top: 20px;
+      }
+
+      .container {
+        flex: 1;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      h1,
+      h2 {
+        margin-bottom: 10px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #2f4f4f;
+        color: white;
+      }
+
+      .total td {
+        font-weight: bold;
+      }
+
+      a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 600px) {
+        .container {
+          padding: 0 10px;
+        }
+
+        table {
+          font-size: 14px;
+        }
+
+        th,
+        td {
+          padding: 5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
     <header>
-        <h1>EEE Lawn Mower Project</h1>
-        <p>Track expenses and updates for the project</p>
+      <h1>EEE Lawn Mower Project</h1>
+      <p>Track expenses and updates of the project</p>
     </header>
 
-    <!-- Starting Page -->
     <div class="container">
-        <div class="selection-box">
-            <button onclick="showContent('main')">Main Purchases</button>
-            <button onclick="showContent('other')">Other Purchases</button>
-        </div>
-    </div>
+      <h2>Main Purchases</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>S.no</th>
+            <th>Item</th>
+            <th>QTY</th>
+            <th>Amount (₹)</th>
+            <th>Mode of Payment</th>
+            <th>Bill</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Motors</td>
+            <td>2</td>
+            <td>6419</td>
+            <td>Online</td>
+            <td>
+              <a
+                href="https://postimg.cc/CzqkyQxX"
+                class="bill-link"
+                target="_blank"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Controller</td>
+            <td>2</td>
+            <td>1629</td>
+            <td>Online</td>
+            <td>
+              <a
+                href="https://postimg.cc/N5m9C2Nw"
+                class="bill-link"
+                target="_blank"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Battery (1st Pay)</td>
+            <td>-</td>
+            <td>5000</td>
+            <td>Online</td>
+            <td>
+              <a
+                href="https://postimg.cc/DJR0B7LZ"
+                class="bill-link"
+                target="_blank"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Petrol (Ranigunj)</td>
+            <td>-</td>
+            <td>150</td>
+            <td>Offline</td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Wheels</td>
+            <td>4</td>
+            <td>2540</td>
+            <td>Offline</td>
+            <td>
+              <a
+                href="https://postimg.cc/qgCzgCHC"
+                class="bill-link"
+                target="_blank"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>AA Batteries</td>
+            <td>8</td>
+            <td>180</td>
+            <td>Offline</td>
+            <td>
+              <a
+                href="https://postimg.cc/Thm3TMnV"
+                class="bill-link"
+                target="_blank"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Framework</td>
+            <td>1</td>
+            <td>5000</td>
+            <td>Online</td>
+            <td>
+              <a
+                href="https://postimg.cc/6TdtDVNz"
+                class="bill-link"
+                target="_blank"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Auto Charges</td>
+            <td>2</td>
+            <td>460</td>
+            <td>Online</td>
+            <td>
+              <a
+                href="https://postimg.cc/gallery/k4LND0z"
+                class="bill-link"
+                target="_blank"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Servo Motor</td>
+            <td>2</td>
+            <td>200</td>
+            <td>Offline</td>
+            <td>
+              <a
+                href="https://postimg.cc/jCZtxxLJ"
+                class="bill-link"
+                target="_blank"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Driver Board</td>
+            <td>2</td>
+            <td>700</td>
+            <td>Offline</td>
+            <td>
+              <a
+                href="https://postimg.cc/jCZtxxLJ"
+                class="bill-link"
+                target="_blank"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>5v Relay</td>
+            <td>1</td>
+            <td>150</td>
+            <td>Offline</td>
+            <td>
+              <a
+                href="https://postimg.cc/jCZtxxLJ"
+                class="bill-link"
+                target="_blank"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>Transmitter & Receiver</td>
+            <td>1</td>
+            <td>2650</td>
+            <td>Offline</td>
+            <td>
+              <a
+                href="https://postimg.cc/fJ14yJZk"
+                class="bill-link"
+                target="_blank"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>Petrol Expenses (Koti)</td>
+            <td>-</td>
+            <td>150</td>
+            <td>Online</td>
+            <td>
+              <a
+                href="https://postimg.cc/gallery/ct25Cmz"
+                class="bill-link"
+                target="_blank"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>AA Batteries</td>
+            <td>8</td>
+            <td>180</td>
+            <td>Online</td>
+            <td>
+              <a
+                href="https://postimg.cc/gallery/ct25Cmz"
+                class="bill-link"
+                target="_blank"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>Battery 2nd pay</td>
+            <td>-</td>
+            <td>9616</td>
+            <td>Online</td>
+            <td>
+              <a
+                href="https://postimg.cc/Bt1ssq9y"
+                class="bill-link"
+                target="_blank"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>Bat. transport charges</td>
+            <td>-</td>
+            <td>285</td>
+            <td>Online</td>
+            <td>
+              <a
+                href="https://postimg.cc/bGzmwhGs"
+                class="bill-link"
+                target="_blank"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr class="total">
+            <td colspan="5">Total</td>
+            <td>₹35309</td>
+          </tr>
+        </tbody>
+      </table>
 
-    <!-- Hidden Content -->
-    <div id="content" class="container" style="display: none;">
-        <div id="main-purchases" style="display: none;">
-            <div class="card">
-                <h2>Main Purchases</h2>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>S.no</th>
-                                <th>Item</th>
-                                <th>QTY</th>
-                                <th>Amount (₹)</th>
-                                <th>Mode of Payment</th>
-                                <th>Bill</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td>1</td><td>Motors</td><td>2</td><td>6419</td><td>Online</td><td><a href="https://postimg.cc/CzqkyQxX" target="_blank" class="bill-link">View Bill</a></td></tr>
-                            <tr><td>2</td><td>Controller</td><td>2</td><td>1629</td><td>Online</td><td><a href="https://postimg.cc/N5m9C2Nw" class="bill-link" target="_blank">View Bill</a></td></tr>
-                            <tr><td>3</td><td>Battery (1st Pay)</td><td>-</td><td>5000</td><td>Online</td><td><a href="https://postimg.cc/DJR0B7LZ" class="bill-link" target="_blank">View Bill</a></td></tr>
-                            <tr><td>4</td><td>Petrol (Ranigunj)</td><td>-</td><td>150</td><td>Offline</td><td>-</td></tr>
-                            <tr><td>5</td><td>Wheels</td><td>4</td><td>2540</td><td>Offline</td><td><a href="https://postimg.cc/qgCzgCHC" class="bill-link" target="_blank">View Bill</a></td></tr>
-                          <tr><td>6</td><td>AA Batteries</td><td>8</td><td>180</td><td>Offline</td><td><a href="https://postimg.cc/Thm3TMnV" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>7</td><td>Framework</td><td>1</td><td>5000</td><td>Online</td><td><a href="https://postimg.cc/6TdtDVNz" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>8</td><td>Auto Charges</td><td>2</td><td>460</td><td>Online</td><td><a href="https://postimg.cc/gallery/k4LND0z" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>9</td><td>Servo Motor</td><td>2</td><td>200</td><td>Offline</td><td><a href="https://postimg.cc/jCZtxxLJ" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>10</td><td>Driver Board</td><td>2</td><td>700</td><td>Offline</td><td><a href="https://postimg.cc/jCZtxxLJ" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>11</td><td>5v Relay</td><td>1</td><td>150</td><td>Offline</td><td><a href="https://postimg.cc/jCZtxxLJ" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>12</td><td>Transmitter & Receiver</td><td>1</td><td>2650</td><td>Offline</td><td><a href="https://postimg.cc/fJ14yJZk" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>13</td><td>Petrol Expenses (Koti)</td><td>-</td><td>150</td><td>Online</td><td><a href="https://postimg.cc/gallery/ct25Cmz" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>14</td><td>AA Batteries</td><td>8</td><td>180</td><td>Online</td><td><a href="https://postimg.cc/gallery/ct25Cmz" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>15</td><td>Battery 2nd pay</td><td>-</td><td>9616</td><td>Online</td><td><a href="https://postimg.cc/Bt1ssq9y" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>16</td><td>Bat. transport charges</td><td>-</td><td>285</td><td>Online</td><td><a href="https://postimg.cc/bGzmwhGs" class="bill-link" target="_blank">View Bill</a></td></tr>
-
-                            <tr class="total"><td colspan="5">Total</td><td>₹35309</td></tr>
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <div id="other-purchases" style="display: none;">
-            <div class="card">
-                <h2>Other Purchases</h2>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>S.no</th>
-                                <th>Item</th>
-                                <th>QTY</th>
-                                <th>Amount (₹)</th>
-                                <th>Mode of Payment</th>
-                                <th>Bill</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                           <tr><td>1</td><td>WiFi Router</td><td>1</td><td>1500</td><td>Online</td><td><a href="https://postimg.cc/ctmHZwPK" target="_blank" class="bill-link">View Bill</a></td></tr>
-                            <tr><td>2</td><td>Petrol Expense (Kukatpally)</td><td></td><td>200</td><td></td><td>-</td></tr>
-                            <tr><td>3</td><td>Lead (For College)</td><td>1</td><td>80</td><td></td><td>-</td></tr>
-                            <tr><td>4</td><td>Dustbin Auto Charges (Transport)</td><td></td><td>307</td><td></td><td><a href="https://postimg.cc/QHR76Ngq" target="_blank" class="bill-link">View Bill</a></td></tr>
-                            <tr class="total"><td colspan="5">Total</td><td>₹2087</td></tr>
-                      
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+      <h2>Other Purchases</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>S.no</th>
+            <th>Item</th>
+            <th>QTY</th>
+            <th>Amount (₹)</th>
+            <th>Mode of Payment</th>
+            <th>Bill</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>WiFi Router</td>
+            <td>1</td>
+            <td>1500</td>
+            <td>Credit Card</td>
+            <td>
+              <a
+                href="https://postimg.cc/ctmHZwPK"
+                target="_blank"
+                class="bill-link"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Petrol Expense (Kukatpally)</td>
+            <td>1</td>
+            <td>200</td>
+            <td>Cash</td>
+            <td>
+              <a
+                href="https://postimg.cc/ctmHZwPK"
+                target="_blank"
+                class="bill-link"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Lead (For College)</td>
+            <td>1</td>
+            <td>80</td>
+            <td>Debit Card</td>
+            <td>
+              <a
+                href="https://postimg.cc/ctmHZwPK"
+                target="_blank"
+                class="bill-link"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Dustbin Auto Charges (Transport)</td>
+            <td>1</td>
+            <td>307</td>
+            <td>UPI</td>
+            <td>
+              <a
+                href="https://postimg.cc/QHR76Ngq"
+                target="_blank"
+                class="bill-link"
+                >View Bill</a
+              >
+            </td>
+          </tr>
+          <tr class="total">
+            <td colspan="5">Total</td>
+            <td>₹2087</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
     <footer>
-        <p>EEE Lawn Mower Project © 2024-25</p>
+      <p>EEE Lawn Mower Project xbro &copy; 2024-25</p>
     </footer>
+    <script>
+      function showPopup(imageSrc) {
+        document.getElementById("popup-image").src = imageSrc;
+        document.getElementById("popup").style.display = "block";
+        document.getElementById("overlay").style.display = "block";
+      }
 
-    <div class="scrolling-text" id="scrolling-line" style="display: none;">
-        <span>Important updates: All project purchases are being tracked and updated regularly. Click to view details.</span>
-    </div>
+      function closePopup() {
+        document.getElementById("popup").style.display = "none";
+        document.getElementById("overlay").style.display = "none";
+      }
 
-</body>
+      function handleFileUpload(event, targetId) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            const link = document.createElement("a");
+            link.href = e.target.result;
+            link.textContent = "View Bill";
+            link.target = "_blank";
+            document.getElementById(targetId).appendChild(link);
+          };
+          reader.readAsDataURL(file);
+        }
+      }
+    </script>
+  </body>
 </html>
