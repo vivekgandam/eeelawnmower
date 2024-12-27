@@ -18,12 +18,13 @@
         margin: 0;
         padding: 0;
         overflow-x: hidden;
+        font-family: 'Arial', sans-serif;
       }
 
       body {
-        font-family: Arial, sans-serif;
         display: flex;
         flex-direction: column;
+        background-color: #f5f5f5;
       }
 
       header,
@@ -31,69 +32,80 @@
         background-color: #2a8f83;
         color: white;
         text-align: center;
-        width: 100vw;
         padding: 20px;
       }
 
       header {
-        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
 
       footer {
-        margin-top: 20px;
+        font-size: 14px;
       }
 
       .container {
-        flex: 1;
         width: 100%;
         max-width: 1200px;
         margin: 0 auto;
-        padding: 0 15px;
+        padding: 30px 15px;
       }
 
       h1,
-      h2 {
-        margin-bottom: 10px;
+      h2,
+      h3 {
+        margin-bottom: 20px;
+        color: #333;
       }
 
       .main-content {
         display: flex;
         justify-content: space-around;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
+        gap: 30px;
       }
 
       .box {
-        border: 1px solid #2a8f83;
+        background-color: #fff;
+        border-radius: 8px;
         padding: 20px;
         width: 45%;
         text-align: center;
-        background-color: #f9f9f9;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.3s ease;
       }
 
       .box:hover {
         background-color: #e3f8f1;
+        transform: scale(1.05);
       }
 
       .updates {
         text-align: center;
-        margin-bottom: 30px;
+        margin-bottom: 40px;
+        background-color: #ffffff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px;
       }
 
       .box-container {
         display: flex;
-        justify-content: space-around;
-        margin-top: 30px;
+        justify-content: space-between;
+        margin-top: 40px;
+        gap: 30px;
       }
 
       .component-purchases,
       .student-contribution {
         width: 45%;
-        border: 1px solid #2a8f83;
+        background-color: #fff;
         padding: 20px;
         text-align: center;
-        background-color: #f9f9f9;
+        border-radius: 8px;
         cursor: pointer;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s ease;
       }
 
       .component-purchases:hover,
@@ -103,19 +115,23 @@
 
       .table-container {
         margin-top: 30px;
+        display: none;
       }
 
       table {
         width: 100%;
         border-collapse: collapse;
-        margin-bottom: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
       }
 
       th,
       td {
-        border: 1px solid #ddd;
-        padding: 8px;
+        padding: 12px;
         text-align: left;
+        border-bottom: 1px solid #ddd;
       }
 
       th {
@@ -123,8 +139,17 @@
         color: white;
       }
 
+      td {
+        background-color: #f9f9f9;
+      }
+
+      tr:hover td {
+        background-color: #e3f8f1;
+      }
+
       .total td {
         font-weight: bold;
+        color: #2a8f83;
       }
 
       a {
@@ -136,28 +161,17 @@
         text-decoration: underline;
       }
 
-      @media (max-width: 600px) {
-        .container {
-          padding: 0 10px;
+      @media (max-width: 768px) {
+        .main-content {
+          flex-direction: column;
+          gap: 20px;
         }
 
-        table {
-          font-size: 14px;
+        .box,
+        .component-purchases,
+        .student-contribution {
+          width: 100%;
         }
-
-        th,
-        td {
-          padding: 5px;
-        }
-      }
-
-      /* Center the phase content */
-      .center-content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
       }
     </style>
   </head>
@@ -178,16 +192,16 @@
       </div>
 
       <!-- Updates Section -->
-<div class="updates">
-  <h3>Updates</h3>
-  <p>Next Payment for Framework is due on 1-1-25.</p>
-  <p><strong>Amount Collected Till Date: </strong>₹41000</p>
-  <p><strong>Amount Spent on Purchases: </strong>₹XXXXX</p>
-  <p><strong>Estimated Budget for Project: </strong>₹54000</p>
-</div>
+      <div class="updates">
+        <h3>Updates</h3>
+        <p>Next Payment for Framework is due on 1-1-25.</p>
+        <p><strong>Amount Collected Till Date: </strong>₹41000</p>
+        <p><strong>Amount Spent on Purchases: </strong>₹XXXXX</p>
+        <p><strong>Estimated Budget for Project: </strong>₹54000</p>
+      </div>
 
       <!-- Phase 1 Content -->
-      <div id="phase1" style="display: none;" class="center-content">
+      <div id="phase1" class="center-content">
         <h2>Phase One of Lawn Mower</h2>
         <p>What are you looking for?</p>
 
@@ -201,52 +215,34 @@
         </div>
 
         <!-- Purchases Tables -->
-        <div class="table-container">
+        <div class="table-container" id="purchase-table">
           <h3>Component Purchases</h3>
-          <div class="table-container">
-            <table>
-              <thead>
-                <tr>
-                  <th>S.no</th>
-                  <th>Item</th>
-                  <th>QTY</th>
-                  <th>Amount (₹)</th>
-                  <th>Mode of Payment</th>
-                  <th>Bill</th>
-                </tr>
-              </thead>
-              <tbody>
-                 <tr><td>1</td><td>Motors</td><td>2</td><td>6419</td><td>Online</td><td><a href="https://postimg.cc/CzqkyQxX" target="_blank" class="bill-link">View Bill</a></td></tr>
-                            <tr><td>2</td><td>Controller</td><td>2</td><td>1629</td><td>Online</td><td><a href="https://postimg.cc/N5m9C2Nw" class="bill-link" target="_blank">View Bill</a></td></tr>
-                            <tr><td>3</td><td>Battery (1st Pay)</td><td>-</td><td>5000</td><td>Online</td><td><a href="https://postimg.cc/DJR0B7LZ" class="bill-link" target="_blank">View Bill</a></td></tr>
-                            <tr><td>4</td><td>Petrol (Ranigunj)</td><td>-</td><td>150</td><td>Offline</td><td>-</td></tr>
-                            <tr><td>5</td><td>Wheels</td><td>4</td><td>2540</td><td>Offline</td><td><a href="https://postimg.cc/qgCzgCHC" class="bill-link" target="_blank">View Bill</a></td></tr>
-                          <tr><td>6</td><td>AA Batteries</td><td>8</td><td>180</td><td>Offline</td><td><a href="https://postimg.cc/Thm3TMnV" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>7</td><td>Framework</td><td>1</td><td>5000</td><td>Online</td><td><a href="https://postimg.cc/6TdtDVNz" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>8</td><td>Auto Charges</td><td>2</td><td>460</td><td>Online</td><td><a href="https://postimg.cc/gallery/k4LND0z" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>9</td><td>Servo Motor</td><td>2</td><td>200</td><td>Offline</td><td><a href="https://postimg.cc/jCZtxxLJ" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>10</td><td>Driver Board</td><td>2</td><td>700</td><td>Offline</td><td><a href="https://postimg.cc/jCZtxxLJ" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>11</td><td>5v Relay</td><td>1</td><td>150</td><td>Offline</td><td><a href="https://postimg.cc/jCZtxxLJ" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>12</td><td>Transmitter & Receiver</td><td>1</td><td>2650</td><td>Offline</td><td><a href="https://postimg.cc/fJ14yJZk" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>13</td><td>Petrol Expenses (Koti)</td><td>-</td><td>150</td><td>Online</td><td><a href="https://postimg.cc/gallery/ct25Cmz" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>14</td><td>AA Batteries</td><td>8</td><td>180</td><td>Online</td><td><a href="https://postimg.cc/gallery/ct25Cmz" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>15</td><td>Battery 2nd pay</td><td>-</td><td>9616</td><td>Online</td><td><a href="https://postimg.cc/Bt1ssq9y" class="bill-link" target="_blank">View Bill</a></td></tr>
-                <tr><td>16</td><td>Bat. transport charges</td><td>-</td><td>285</td><td>Online</td><td><a href="https://postimg.cc/bGzmwhGs" class="bill-link" target="_blank">View Bill</a></td></tr>
-
-                <tr class="total">
-                  <td colspan="5">Total</td>
-                  <td>₹35309</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-
+          <table>
+            <thead>
+              <tr>
+                <th>S.no</th>
+                <th>Item</th>
+                <th>QTY</th>
+                <th>Amount (₹)</th>
+                <th>Mode of Payment</th>
+                <th>Bill</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>Motors</td><td>2</td><td>6419</td><td>Online</td><td><a href="https://postimg.cc/CzqkyQxX" target="_blank">View Bill</a></td></tr>
+              <tr><td>2</td><td>Controller</td><td>2</td><td>1629</td><td>Online</td><td><a href="https://postimg.cc/N5m9C2Nw" target="_blank">View Bill</a></td></tr>
+              <tr><td>3</td><td>Battery (1st Pay)</td><td>-</td><td>5000</td><td>Online</td><td><a href="https://postimg.cc/DJR0B7LZ" target="_blank">View Bill</a></td></tr>
+              <tr class="total">
+                <td colspan="5">Total</td>
+                <td>₹35309</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
 
       <!-- Phase 2 Content -->
-      <div id="phase2" style="display: none;" class="center-content">
+      <div id="phase2" class="center-content">
         <h2>Phase Two of Lawn Mower</h2>
         <p>What are you looking for?</p>
 
@@ -284,11 +280,12 @@
         document.getElementById("phase1").style.display = "none";
       });
 
-      // Display message when boxes are clicked in Phase 2
+      // Show the table when Component Purchases is clicked
       document.getElementById("component-purchases").addEventListener("click", function () {
-        alert("Component Purchases will be updated soon!");
+        document.getElementById("purchase-table").style.display = "block";
       });
 
+      // Display message when Student Contribution is clicked
       document.getElementById("student-contribution").addEventListener("click", function () {
         alert("Student Contribution List will be updated soon!");
       });
