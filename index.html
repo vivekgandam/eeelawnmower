@@ -136,22 +136,6 @@
         text-decoration: underline;
       }
 
-      /* Centering Phase 1 content */
-      #phase1 {
-        display: none;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        height: 100%;
-      }
-
-      /* Centering "What are you looking for?" */
-      #phase1 h2 {
-        margin-bottom: 20px;
-      }
-
       @media (max-width: 600px) {
         .container {
           padding: 0 10px;
@@ -165,6 +149,15 @@
         td {
           padding: 5px;
         }
+      }
+
+      /* Center the phase content */
+      .center-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
       }
     </style>
   </head>
@@ -191,7 +184,7 @@
       </div>
 
       <!-- Phase 1 Content -->
-      <div id="phase1">
+      <div id="phase1" style="display: none;" class="center-content">
         <h2>Phase One of Lawn Mower</h2>
         <p>What are you looking for?</p>
 
@@ -207,60 +200,61 @@
         <!-- Purchases Tables -->
         <div class="table-container">
           <h3>Component Purchases</h3>
-            <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>S.no</th>
-                                <th>Item</th>
-                                <th>QTY</th>
-                                <th>Amount (₹)</th>
-                                <th>Mode of Payment</th>
-                                <th>Bill</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Data Rows -->
-                            <tr><td>1</td><td>Motors</td><td>2</td><td>6419</td><td>Online</td><td><a href="https://postimg.cc/CzqkyQxX" target="_blank" class="bill-link">View Bill</a></td></tr>
-                            <!-- Other Rows here -->
-                            <tr class="total"><td colspan="5">Total</td><td>₹35309</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>S.no</th>
+                  <th>Item</th>
+                  <th>QTY</th>
+                  <th>Amount (₹)</th>
+                  <th>Mode of Payment</th>
+                  <th>Bill</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Add your purchase items here -->
+                <tr class="total">
+                  <td colspan="5">Total</td>
+                  <td>₹35309</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
 
-
         <h3>Other Purchases</h3>
-        <div id="other-purchases">
-            <div class="card">
-                <h2>Other Purchases</h2>
-                <div class="table-container">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>S.no</th>
-                                <th>Item</th>
-                                <th>QTY</th>
-                                <th>Amount (₹)</th>
-                                <th>Mode of Payment</th>
-                                <th>Bill</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Data Rows -->
-                            <tr><td>1</td><td>WiFi Router</td><td>1</td><td>1500</td><td>Online</td><td><a href="https://postimg.cc/ctmHZwPK" target="_blank" class="bill-link">View Bill</a></td></tr>
-                            <!-- Other Rows here -->
-                            <tr class="total"><td colspan="5">Total</td><td>₹2087</td></tr>
-                        </tbody>
-                    </table>
-                </div>
+
+        <div id="other-purchases" style="display: none;">
+          <div class="card">
+            <h2>Other Purchases</h2>
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>S.no</th>
+                    <th>Item</th>
+                    <th>QTY</th>
+                    <th>Amount (₹)</th>
+                    <th>Mode of Payment</th>
+                    <th>Bill</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- Add other purchases here -->
+                  <tr class="total">
+                    <td colspan="5">Total</td>
+                    <td>₹2087</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
+          </div>
         </div>
       </div>
 
       <!-- Phase 2 Content -->
-      <div id="phase2" style="display: none;">
+      <div id="phase2" style="display: none;" class="center-content">
         <h2>Phase Two of Lawn Mower</h2>
         <p>What are you looking for?</p>
 
@@ -282,15 +276,19 @@
     </footer>
 
     <script>
+      // Initially hide phase content
+      document.getElementById("phase1").style.display = "none";
+      document.getElementById("phase2").style.display = "none";
+
       // Show Phase 1 when Remote Controlled Lawn Mower is clicked
       document.getElementById("remote-lawnmower").addEventListener("click", function () {
-        document.getElementById("phase1").style.display = "flex";
+        document.getElementById("phase1").style.display = "block";
         document.getElementById("phase2").style.display = "none";
       });
 
       // Show Phase 2 when Autonomous Lawn Mower is clicked
       document.getElementById("autonomous-lawnmower").addEventListener("click", function () {
-        document.getElementById("phase2").style.display = "flex";
+        document.getElementById("phase2").style.display = "block";
         document.getElementById("phase1").style.display = "none";
       });
 
