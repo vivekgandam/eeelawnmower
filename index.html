@@ -127,20 +127,141 @@
                     const link = document.createElement('a');
                     link.href = e.target.result;
                     link.textContent = "View Bill";
-                    link.className = 'bill-link';
-                    link.onclick = function() { showPopup(e.target.result); return false; };
-                    document.getElementById(targetId).appendChild(link);
-                };
-                reader.readAsDataURL(file);
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EEE Lawn Mower</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background-color: #2a9d8f;
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            margin: 0; /* Removes any default margin */
+            width: 100%; /* Ensures full width */
+            box-sizing: border-box; /* Includes padding in width calculation */
+        }
+        header h1 {
+            margin: 0;
+            font-size: 1.8em; /* Adjusts font size for better readability on mobile */
+            word-wrap: break-word; /* Ensures the title doesn't overflow */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        table th {
+            background-color: #264653;
+            color: white;
+        }
+        .total {
+            font-weight: bold;
+        }
+        .bill-link {
+            color: #2a9d8f;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            z-index: 1000;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+        .popup img {
+            max-width: 100%;
+            height: auto;
+        }
+        .popup-close {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            color: #2a9d8f;
+            cursor: pointer;
+        }
+        #overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        .scrolling-line {
+            background-color: #264653; /* Same as table header color */
+            color: white;
+            padding: 10px 0; /* Adjusted padding for better fit */
+            font-size: 18px; /* Commonly used font size */
+            font-weight: normal;
+            white-space: nowrap;
+            overflow: hidden;
+            width: 100vw; /* Set width to 100% of the viewport */
+            box-sizing: border-box;
+            position: relative;
+        }
+        .scrolling-line span {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll-text 15s linear infinite;
+        }
+        @keyframes scroll-text {
+            from {
+                transform: translateX(100%);
             }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+    </style>
+    <script>
+        function showPopup(imageSrc) {
+            document.getElementById('popup-image').src = imageSrc;
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
         }
     </script>
 </head>
 <body>
     <header>
         <h1>EEE Lawn Mower Project</h1>
-        <p>Track expenses and updates for the project</p>
+        <p>Track expenses and updates of the project</p>
     </header>
+
+   
+
 
     <div class="scrolling-line">
         <span>| AMT. COLLECTED = 36000 | AMT. SPENT = 37396 | AMT. IN HAND = 0 |</span>
