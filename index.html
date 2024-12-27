@@ -80,16 +80,27 @@
             background-color: #2a9d8f;
             color: #fff;
         }
-        .scrolling-line {
-            margin-top: 20px;
+        .scrolling-text {
             font-size: 20px;
-            background-color: #ffcc00;
-            padding: 10px;
-            font-weight: bold;
-            display: none;
-        }
-        marquee {
             color: #2a9d8f;
+            font-weight: bold;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            position: absolute;
+            top: 100px;
+        }
+        .scrolling-text span {
+            display: inline-block;
+            animation: scroll 10s linear infinite;
+        }
+        @keyframes scroll {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
         }
     </style>
     <script>
@@ -97,7 +108,7 @@
             document.getElementById('content').style.display = 'block';
             document.getElementById('main-purchases').style.display = type === 'main' ? 'block' : 'none';
             document.getElementById('other-purchases').style.display = type === 'other' ? 'block' : 'none';
-            document.getElementById('scrolling-line').style.display = type ? 'block' : 'none';
+            document.getElementById('scrolling-line').style.display = 'block'; // Show the scrolling text
         }
     </script>
 </head>
@@ -116,9 +127,9 @@
         </div>
     </div>
 
-    <!-- Scrolling Line for Total Amount -->
-    <div id="scrolling-line" class="scrolling-line">
-        <marquee>Displaying total amount collected = ₹36000</marquee>
+    <!-- Scrolling text -->
+    <div id="scrolling-line" class="scrolling-text" style="display: none;">
+        <span>Total Amount Collected = ₹36000</span>
     </div>
 
     <!-- Hidden Content -->
@@ -175,7 +186,7 @@
                 </thead>
                 <tbody>
                     <tr><td>1</td><td>WiFi Router</td><td>1</td><td>1500</td><td>Online</td><td><a href="https://postimg.cc/ctmHZwPK" target="_blank" class="bill-link">View Bill</a></td></tr>
-                    <tr><td>2</td><td>Petrol Expense (Kukatpally)</td><td></td><td>200</td><td></td><td id="bill16"></td></tr>
+                     <tr><td>2</td><td>Petrol Expense (Kukatpally)</td><td></td><td>200</td><td></td><td id="bill16"></td></tr>
     <tr><td>3</td><td>Lead (For College)</td><td>1</td><td>80</td><td></td><td id="bill17"></td></tr>
     <tr><td>4</td><td>Dustbin Auto Charges (Transport)</td><td></td><td>307</td><td></td><td><a href="https://postimg.cc/QHR76Ngq" target="_blank" class="bill-link">View Bill</a></td></tr>
     <tr class="total"><td colspan="5">Total</td><td>₹2087</td></tr>
