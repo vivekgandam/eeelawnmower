@@ -15,20 +15,22 @@
             line-height: 1.6;
         }
         header {
-            background-color: #264653;
+            background-color: #005f73;
             color: #fff;
             text-align: center;
-            padding: 1.5em;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 2em 1.5em;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
         header h1 {
             margin: 0;
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.5em;
+            font-size: 3em;
+            letter-spacing: 2px;
         }
         header p {
-            margin: 5px 0;
-            font-size: 1.1em;
+            margin: 10px 0;
+            font-size: 1.2em;
         }
         .container {
             max-width: 1200px;
@@ -50,31 +52,38 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .selection-box button:hover {
             background-color: #21867a;
+            transform: translateY(-3px);
         }
         .card {
             background-color: white;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             margin-top: 30px;
             overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
         }
         .card h2 {
-            font-size: 1.8em;
-            color: #264653;
+            font-size: 2em;
+            color: #005f73;
+            margin-bottom: 20px;
         }
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
+            font-size: 1.1em;
         }
         table th, table td {
             border: 1px solid #ddd;
-            padding: 10px;
+            padding: 12px;
             text-align: left;
         }
         table th {
@@ -86,20 +95,22 @@
             font-weight: bold;
             background-color: #e9f7f6;
             text-align: right;
+            font-size: 1.3em;
         }
         .total td {
-            font-size: 1.2em;
+            font-size: 1.4em;
         }
         .bill-link {
             color: #2a9d8f;
             text-decoration: none;
+            font-weight: 600;
         }
         .bill-link:hover {
             text-decoration: underline;
         }
         footer {
             text-align: center;
-            padding: 20px;
+            padding: 25px;
             background-color: #2a9d8f;
             color: white;
             position: sticky;
@@ -108,7 +119,7 @@
         }
         .scrolling-text {
             font-size: 20px;
-            color: #2a9d8f;
+            color: #fff;
             font-weight: bold;
             white-space: nowrap;
             position: fixed;
@@ -116,6 +127,8 @@
             left: 0;
             width: 100%;
             overflow: hidden;
+            background-color: #005f73;
+            padding: 10px 0;
         }
         .scrolling-text span {
             display: inline-block;
@@ -157,8 +170,6 @@
         </div>
     </div>
 
-    
-
     <!-- Hidden Content -->
     <div id="content" class="container" style="display: none;">
         <div id="main-purchases" style="display: none;">
@@ -195,6 +206,7 @@
                 <tr><td>16</td><td>Bat. transport charges</td><td>-</td><td>285</td><td>Online</td><td><a href="https://postimg.cc/bGzmwhGs" class="bill-link" target="_blank">View Bill</a></td></tr>
 
                             <tr class="total"><td colspan="5">Total</td><td>₹35309</td></tr>
+
                         </tbody>
                     </table>
                 </div>
@@ -217,11 +229,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>1</td><td>WiFi Router</td><td>1</td><td>1500</td><td>Online</td><td><a href="https://postimg.cc/ctmHZwPK" target="_blank" class="bill-link">View Bill</a></td></tr>
+                           <tr><td>1</td><td>WiFi Router</td><td>1</td><td>1500</td><td>Online</td><td><a href="https://postimg.cc/ctmHZwPK" target="_blank" class="bill-link">View Bill</a></td></tr>
                             <tr><td>2</td><td>Petrol Expense (Kukatpally)</td><td></td><td>200</td><td></td><td>-</td></tr>
                             <tr><td>3</td><td>Lead (For College)</td><td>1</td><td>80</td><td></td><td>-</td></tr>
                             <tr><td>4</td><td>Dustbin Auto Charges (Transport)</td><td></td><td>307</td><td></td><td><a href="https://postimg.cc/QHR76Ngq" target="_blank" class="bill-link">View Bill</a></td></tr>
                             <tr class="total"><td colspan="5">Total</td><td>₹2087</td></tr>
+                      
                         </tbody>
                     </table>
                 </div>
@@ -232,6 +245,10 @@
     <footer>
         <p>EEE Lawn Mower Project © 2024-25</p>
     </footer>
+
+    <div class="scrolling-text" id="scrolling-line" style="display: none;">
+        <span>Important updates: All project purchases are being tracked and updated regularly. Click to view details.</span>
+    </div>
 
 </body>
 </html>
