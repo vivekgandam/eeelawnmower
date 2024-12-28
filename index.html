@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EEE Lawn Mower</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"> <!-- Google Fonts -->
+    <title>EEE Lawn Mower Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -12,33 +12,23 @@
             box-sizing: border-box;
         }
 
-        html, body {
-            width: 100%;
-            min-height: 100vh;
-            overflow-x: hidden;
-            font-family: 'Roboto', sans-serif;
-            scroll-behavior: smooth;
-        }
-
         body {
-            display: flex;
-            flex-direction: column;
-            background-color: #f0f4f8;
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
             color: #333;
+            overflow-x: hidden;
         }
 
         header {
-            background-color: #2a8f83;
+            background: linear-gradient(to right, #2a8f83, #007bb8);
             color: #fff;
+            padding: 30px 0;
             text-align: center;
-            padding: 40px 0;
-            position: relative;
         }
 
         header h1 {
             font-size: 2.5rem;
-            margin-bottom: 10px;
-            font-weight: 500;
         }
 
         header p {
@@ -46,99 +36,66 @@
         }
 
         .container {
-            width: 100%;
             max-width: 1200px;
             margin: auto;
             padding: 20px 15px;
         }
 
-        .hero-image {
-            background-image: url('https://example.com/lawn-mower.jpg'); /* Add a relevant image URL */
-            background-size: cover;
-            background-position: center;
-            height: 300px;
+        .card {
+            background: #fff;
             border-radius: 10px;
-            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: all 0.3s ease;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero {
+            background: url('https://example.com/lawn-mower-hero.jpg') no-repeat center center/cover;
+            height: 400px;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
 
-        .hero-image::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(42, 143, 131, 0.7);
-            border-radius: 10px;
-        }
-
-        .hero-image h2 {
-            position: relative;
-            color: white;
+        .hero h2 {
             font-size: 2rem;
-            font-weight: 600;
-            z-index: 1;
-        }
-
-        .main-content {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 40px;
-            gap: 30px;
-        }
-
-        .box {
-            background-color: #fff;
-            border-radius: 8px;
-            padding: 20px;
-            width: 45%;
             text-align: center;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            position: relative;
         }
 
-        .box:hover {
-            background-color: #e3f8f1;
-            transform: translateY(-5px);
-        }
-
-        .updates {
-            text-align: center;
-            margin-bottom: 40px;
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-        }
-
-        .box-container {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-            gap: 30px;
-        }
-
-        .component-purchases,
-        .student-contribution {
-            width: 45%;
-            background-color: #fff;
-            padding: 20px;
-            text-align: center;
-            border-radius: 8px;
-            cursor: pointer;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bb8;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
             transition: background-color 0.3s ease;
         }
 
-        .component-purchases:hover,
-        .student-contribution:hover {
-            background-color: #e3f8f1;
+        .button:hover {
+            background-color: #005fa3;
+        }
+
+        .updates {
+            margin: 30px 0;
+            padding: 20px;
+            background: #e3f8f1;
+            border-radius: 10px;
+        }
+
+        .updates h3 {
+            color: #2a8f83;
         }
 
         .table-container {
@@ -149,55 +106,37 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
             overflow: hidden;
+            margin-top: 20px;
         }
 
         th, td {
             padding: 12px;
             text-align: left;
-            border-bottom: 1px solid #ddd;
+            border-bottom: 2px solid #ddd;
         }
 
         th {
-            background-color: #2f4f4f;
+            background-color: #2a8f83;
             color: white;
-        }
-
-        td {
-            background-color: #f9f9f9;
         }
 
         tr:hover td {
             background-color: #e3f8f1;
         }
 
-        .total td {
-            font-weight: bold;
-            color: #2a8f83;
-        }
-
-        a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #2a8f83;
+            color: white;
+            margin-top: 20px;
         }
 
         @media (max-width: 768px) {
-            .main-content {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .box,
-            .component-purchases,
-            .student-contribution {
-                width: 100%;
+            header h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -205,17 +144,16 @@
 <body>
     <header>
         <h1>Electrification of Lawn Mower</h1>
-        <p>Innovating the Future of Lawn Care</p>
+        <p>Innovative Solutions for Modern Lawn Care</p>
     </header>
 
     <div class="container">
-        <div class="hero-image">
+        <div class="hero">
             <h2>Transforming Lawn Care with Technology</h2>
         </div>
 
-        <!-- Updates Section -->
         <div class="updates">
-            <h3>Updates</h3>
+            <h3>Project Updates</h3>
             <p>Next Payment for Framework is due on 1-1-25.</p>
             <p><strong>Estimated Budget for Project: </strong>₹54,000</p>
             <p><strong>Amount Collected Till Date: </strong>₹41,000</p>
@@ -223,63 +161,49 @@
             <p><strong>Amount in Hand: </strong>₹XX,XXX</p>
         </div>
 
+        <div class="main-content">
+            <div class="card" id="remote-lawnmower">
+                <h3>Remote Controlled Lawn Mower</h3>
+                <p>Explore the innovative remote-controlled lawn mower technology.</p>
+                <a href="#" class="button">View Details</a>
+            </div>
+            <div class="card" id="autonomous-lawnmower">
+                <h3>Autonomous Lawn Mower</h3>
+                <p>Learn about our latest autonomous lawn mower project.</p>
+                <a href="#" class="button">View Details</a>
+            </div>
+        </div>
+
         <!-- Phase 1 Content -->
         <div id="phase1" class="center-content">
-            <h2>Phase One of Lawn Mower</h2>
-            <h2>Amount allocated: ₹44,000</h2>
-            <p>What are you looking for?</p>
+            <div class="card">
+                <h2>Phase One of Lawn Mower</h2>
+                <p>Amount allocated: ₹44,000</p>
 
-            <div class="box-container">
-                <div class="component-purchases" id="component-purchases">
+                <div class="table-container" id="purchase-table">
                     <h3>Component Purchases</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>S.no</th>
+                                <th>Item</th>
+                                <th>QTY</th>
+                                <th>Amount (₹)</th>
+                                <th>Bill</th>
+                                <th>Mode of Payment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Motors</td><td>2</td><td>6419</td><td><a href="https://postimg.cc/CzqkyQxX" target="_blank">View Bill</a></td><td>Online</td></tr>
+                            <tr><td>2</td><td>Controller</td><td>2</td><td>1629</td><td><a href="https://postimg.cc/N5m9C2Nw" target="_blank">View Bill</a></td><td>Online</td></tr>
+                            <tr class="total"><td colspan="3">Total</td><td>₹8,048</td></tr>
+                        </tbody>
+                    </table>
                 </div>
-                <div class="student-contribution" id="student-contribution">
+
+                <div class="table-container" id="student-contribution-table">
                     <h3>Student Contribution List</h3>
-                </div>
-            </div>
-
-            <!-- Purchases Tables -->
-            <div class="table-container" id="purchase-table">
-                <h3>Component Purchases</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>S.no</th>
-                            <th>Item</th>
-                            <th>QTY</th>
-                            <th>Amount (₹)</th>
-                            <th>Bill</th>
-                            <th>Mode of Payment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>1</td><td>Motors</td><td>2</td><td>6419</td><td><a href="https://postimg.cc/CzqkyQxX" target="_blank">View Bill</a></td><td>Online</td></tr>
-                        <tr><td>2</td><td>Controller</td><td>2</td><td>1629</td><td><a href="https://postimg.cc/N5m9C2Nw" target="_blank">View Bill</a></td><td>Online</td></tr>
-                        <tr><td>3</td><td>Battery (1st Pay)</td><td>-</td><td>5000</td><td><a href="https://postimg.cc/DJR0B7LZ" target="_blank">View Bill</a></td><td>Online</td></tr>
-                        <tr><td>4</td><td>Petrol (Ranigunj)</td><td>-</td><td>150</td><td>-</td><td>Offline</td></tr>
-                        <tr><td>5</td><td>Wheels</td><td>4</td><td>2540</td><td><a href="https://postimg.cc/qgCzgCHC" target="_blank">View Bill</a></td><td>Offline</td></tr>
-                        <tr><td>6</td><td>AA Batteries</td><td>8</td><td>180</td><td><a href="https://postimg.cc/Thm3TMnV" target="_blank">View Bill</a></td><td>Offline</td></tr>
-                        <tr><td>7</td><td>Framework</td><td>1</td><td>5000</td><td><a href="https://postimg.cc/6TdtDVNz" target="_blank">View Bill</a></td><td>Online</td></tr>
-                        <tr><td>8</td><td>Auto Charges</td><td>2</td><td>460</td><td><a href="https://postimg.cc/gallery/k4LND0z" target="_blank">View Bill</a></td><td>Online</td></tr>
-                        <tr><td>9</td><td>Servo Motor</td><td>2</td><td>200</td><td><a href="https://postimg.cc/jCZtxxLJ" target="_blank">View Bill</a></td><td>Offline</td></tr>
-                        <tr><td>10</td><td>Driver Board</td><td>2</td><td>700</td><td><a href="https://postimg.cc/jCZtxxLJ" target="_blank">View Bill</a></td><td>Offline</td></tr>
-                        <tr><td>11</td><td>5v Relay</td><td>1</td><td>150</td><td><a href="https://postimg.cc/jCZtxxLJ" target="_blank">View Bill</a></td><td>Offline</td></tr>
-                        <tr><td>12</td><td>Transmitter & Receiver</td><td>1</td><td>2650</td><td><a href="https://postimg.cc/fJ14yJZk" target="_blank">View Bill</a></td><td>Offline</td></tr>
-                        <tr><td>13</td><td>Petrol Expenses (Koti)</td><td>-</td><td>150</td><td><a href="https://postimg.cc/gallery/ct25Cmz" target="_blank">View Bill</a></td><td>Online</td></tr>
-                        <tr><td>14</td><td>AA Batteries</td><td>8</td><td>180</td><td><a href="https://postimg.cc/gallery/ct25Cmz" target="_blank">View Bill</a></td><td>Online</td></tr>
-                        <tr><td>15</td><td>Battery 2nd pay</td><td>-</td><td>9616</td><td><a href="https://postimg.cc/Bt1ssq9y" target="_blank">View Bill</a></td><td>Online</td></tr>
-                        <tr><td>16</td><td>Batttery Transport Charges</td><td>-</td><td>285</td><td><a href="https://postimg.cc/bGzmwhGs" target="_blank">View Bill</a></td><td>Online</td></tr>
-                        <tr><td class="total" colspan="4">Total</td><td>₹35,309</td>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Student Contribution Table -->
-            <div class="table-container" id="student-contribution-table">
-                <h3>Student Contribution List</h3>
-                <section class="payment-status">
-                    <h2>Payment Details</h2>
-                    <table border="1" cellpadding="5" cellspacing="0">
+                    <table>
                         <thead>
                             <tr>
                                 <th>S.No.</th>
@@ -291,48 +215,24 @@
                         <tbody>
                             <tr><td>1</td><td>Vivek Gandam</td><td>PAID</td><td>₹2000</td></tr>
                             <tr><td>2</td><td>D. Ashrith</td><td>PAID</td><td>₹2000</td></tr>
-                            <tr><td>3</td><td>P. Arun</td><td>PAID</td><td>₹2000</td></tr>
-                            <tr><td>4</td><td>M. Bhanushreya</td><td>PAID</td><td>₹2000</td></tr>
-                            <tr><td>5</td><td>U. Gowtham</td><td>PAID</td><td>₹2000</td></tr>
-                            <tr><td>6</td><td>Manaswini</td><td>PAID</td><td>₹2000</td></tr>
-                            <tr><td>7</td><td>Nadeem</td><td>PAID</td><td>₹2000</td></tr>
-                            <tr><td>8</td><td>M. Sirisha</td><td>PAID</td><td>₹2000</td></tr>
-                            <tr><td>9</td><td>A. Varshitha</td><td>PAID</td><td>₹2000</td></tr>
-                            <tr><td>10</td><td>Vinod</td><td>PAID</td><td>₹2000</td></tr>
-                            <tr><td>11</td><td>Vishalamrutha</td><td>PAID</td><td>₹2000</td></tr>
-                            <tr><td>12</td><td>G. Harshitha</td><td>PAID</td><td>₹2000</td></tr>
-                            <tr><td>13</td><td>Jaheer Basha</td><td>PAID</td><td>₹2000</td></tr>
-                            <tr><td>14</td><td>P. Michael</td><td>PAID</td><td>₹2000</td></tr>
-                            <tr><td>15</td><td>Narender</td><td>PAID</td><td>₹2000</td></tr>
-                            <tr><td>16</td><td>Sathwika</td><td>PAID</td><td>₹2000</td></tr>
-                            <tr><td>17</td><td>Shivamani</td><td>PAID</td><td>₹2000</td></tr>
-                            <tr><td>18</td><td>A. Varshika</td><td>PAID</td><td>₹2000</td></tr>
+                            <tr class="total"><td colspan="3">Total</td><td>₹2,000</td></tr>
                         </tbody>
                     </table>
-                </section>
+                </div>
+                <a href="#" class="button" id="show-tables">Show Details</a>
             </div>
         </div>
 
         <!-- Phase 2 Content -->
         <div id="phase2" class="center-content">
             <h2>Phase Two of Lawn Mower</h2>
-            <h2>Amount Allocated: ₹10,000</h2>
+            <p>Amount Allocated: ₹10,000</p>
             <p>What are you looking for?</p>
-
-            <div class="box-container">
-                <div class="component-purchases">
-                    <h3>Component Purchases</h3>
-                    <p>Will be updated soon!</p>
-                </div>
-                <div class="student-contribution">
-                    <h3>Student Contribution List</h3>
-                    <p>Will be updated soon!</p>
-                </div>
-            </div>
+            <p>Details coming soon!</p>
         </div>
     </div>
 
-    <footer>
+    <footer class="footer">
         <p>XBRO &copy; 2024-25</p>
     </footer>
 
@@ -340,44 +240,31 @@
         // Initially hide phase content
         document.getElementById("phase1").style.display = "none";
         document.getElementById("phase2").style.display = "none";
-
-        // Function to scroll and display the corresponding phase
-        function showPhase(phaseId) {
-            document.getElementById("phase1").style.display = "none";
-            document.getElementById("phase2").style.display = "none";
-            document.getElementById(phaseId).style.display = "block";
-            document.getElementById(phaseId).scrollIntoView({ behavior: "smooth" });
-        }
+        document.getElementById("purchase-table").style.display = "none";
+        document.getElementById("student-contribution-table").style.display = "none";
 
         // Show Phase 1 when Remote Controlled Lawn Mower is clicked
         document.getElementById("remote-lawnmower").addEventListener("click", function () {
-            showPhase("phase1");
+            document.getElementById("phase1").style.display = "block";
+            document.getElementById("phase2").style.display = "none";
+            document.getElementById("phase1").scrollIntoView({ behavior: "smooth" });
         });
 
         // Show Phase 2 when Autonomous Lawn Mower is clicked
         document.getElementById("autonomous-lawnmower").addEventListener("click", function () {
-            showPhase("phase2");
+            document.getElementById("phase2").style.display = "block";
+            document.getElementById("phase1").style.display = "none";
+            document.getElementById("phase2").scrollIntoView({ behavior: "smooth" });
         });
 
-        // Show the table when Component Purchases is clicked
-        document.getElementById("component-purchases").addEventListener("click", function () {
-            document.getElementById("purchase-table").style.display = "block";
-            document.getElementById("purchase-table").scrollIntoView({ behavior: "smooth" });
+        // Show the tables when button is clicked
+        document.getElementById("show-tables").addEventListener("click", function () {
+            const purchaseTable = document.getElementById("purchase-table");
+            const studentTable = document.getElementById("student-contribution-table");
+            purchaseTable.style.display = purchaseTable.style.display === "block" ? "none" : "block";
+            studentTable.style.display = studentTable.style.display === "block" ? "none" : "block";
+            purchaseTable.scrollIntoView({ behavior: "smooth" });
         });
-
-        // Show the table when Student Contribution is clicked
-        document.getElementById("student-contribution").addEventListener("click", function () {
-            const studentContributionTable = document.getElementById("student-contribution-table");
-
-            // Toggle visibility
-            if (studentContributionTable.style.display === "none" || studentContributionTable.style.display === "") {
-                studentContributionTable.style.display = "block";
-            } else {
-                studentContributionTable.style.display = "none"; // Toggle off if already displayed
-            }
-            studentContributionTable.scrollIntoView({ behavior: "smooth" }); // Scroll to the student contribution table
-        });
-
     </script>
 </body>
 </html>
