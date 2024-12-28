@@ -324,13 +324,20 @@
         });
 
         // Show the table when Student Contribution is clicked
-        document.getElementById("student-contribution").addEventListener("click", function () {
-            const studentContributionTable = document.getElementById("student-contribution-table");
-            if (studentContributionTable.style.display === "none") {
-                studentContributionTable.style.display = "block";
-            }
-            studentContributionTable.scrollIntoView({ behavior: "smooth" });
-        });
+       // Show the table when Student Contribution is clicked
+document.getElementById("student-contribution").addEventListener("click", function () {
+    const studentContributionTable = document.getElementById("student-contribution-table");
+    
+    // Toggle visibility
+    if (studentContributionTable.style.display === "none" || studentContributionTable.style.display === "") {
+        studentContributionTable.style.display = "block";
+    } else {
+        studentContributionTable.style.display = "none"; // Toggle off if already displayed
+    }
+    studentContributionTable.scrollIntoView({ behavior: "smooth" }); // Scroll to the student contribution table
+});
+
+          
     </script>
 </body>
 </html>
