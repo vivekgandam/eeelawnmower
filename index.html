@@ -109,7 +109,7 @@
 
         .table-container {
             margin-top: 30px;
-            display: none; /* Keep hidden by default */
+            display: none;
         }
 
         table {
@@ -183,116 +183,105 @@
                 <a href="#" class="button" id="show-purchases">Component Purchases</a>
                 <a href="#" class="button" id="show-contributions">Student Contribution List</a>
             </div>
-            <div class="card" id="autonomous-lawnmower" style="display:none;">
-                <h3>Autonomous Lawn Mower</h3>
-                <p>Learn about our latest autonomous lawn mower project.</p>
-                <a href="#" class="button">View Details</a>
-            </div>
         </div>
 
-        <div class="card" id="phase1">
-            <h2>Phase One of Lawn Mower</h2>
-            <p>Amount allocated: ₹44,000</p>
-
-            <div class="table-container" id="purchase-table">
-                <h3>Component Purchases</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>S.no</th>
-                            <th>Item</th>
-                            <th>QTY</th>
-                            <th>Amount (₹)</th>
-                            <th>Bill</th>
-                            <th>Mode of Payment</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Motors</td>
-                            <td>2</td>
-                            <td>6419</td>
-                            <td><a href="https://postimg.cc/CzqkyQxX" target="_blank">View Bill</a></td>
-                            <td>Online</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Controller</td>
-                            <td>2</td>
-                            <td>1629</td>
-                            <td><a href="https://postimg.cc/N5m9C2Nw" target="_blank">View Bill</a></td>
-                            <td>Online</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Petrol (Ranigunj)</td>
-                            <td>-</td>
-                            <td>150</td>
-                            <td>-</td>
-                            <td>Offline</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>Wheels</td>
-                            <td>4</td>
-                            <td>2540</td>
-                            <td><a href="https://postimg.cc/qgCzgCHC" class="bill-link" target="_blank">View Bill</a></td>
-                            <td>Offline</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>AA Batteries</td>
-                            <td>8</td>
-                            <td>180</td>
-                            <td><a href="https://postimg.cc/Thm3TMnV" class="bill-link" target="_blank">View Bill</a></td>
-                            <td>Offline</td>
-                        </tr>
-                        <tr class="total">
-                            <td colspan="3">Total</td>
-                            <td>₹35309</td>
-                            <td colspan="2"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <div class="table-container" id="student-contribution-table">
-                <h3>Student Contribution List</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>S.No.</th>
-                            <th>Name of the Student</th>
-                            <th>Status of Payment</th>
-                            <th>Amount Paid</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>Vivek Gandam</td>
-                            <td>PAID</td>
-                            <td>₹2000</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>D. Ashrith</td>
-                            <td>PAID</td>
-                            <td>₹2000</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>P. Arun</td>
-                            <td>PAID</td>
-                            <td>₹2000</td>
-                        </tr>
-                        <!-- Add remaining rows as necessary -->
-                    </tbody>
-                </table>
-            </div>
+        <div class="table-container" id="purchase-table">
+            <h3>Component Purchases</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S.no</th>
+                        <th>Item</th>
+                        <th>QTY</th>
+                        <th>Amount (₹)</th>
+                        <th>Bill</th>
+                        <th>Mode of Payment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Motors</td>
+                        <td>2</td>
+                        <td>6419</td>
+                        <td><a href="https://postimg.cc/CzqkyQxX" target="_blank">View Bill</a></td>
+                        <td>Online</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Controller</td>
+                        <td>2</td>
+                        <td>1629</td>
+                        <td><a href="https://postimg.cc/N5m9C2Nw" target="_blank">View Bill</a></td>
+                        <td>Online</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Petrol (Ranigunj)</td>
+                        <td>-</td>
+                        <td>150</td>
+                        <td>-</td>
+                        <td>Offline</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Wheels</td>
+                        <td>4</td>
+                        <td>2540</td>
+                        <td><a href="https://postimg.cc/qgCzgCHC" class="bill-link" target="_blank">View Bill</a></td>
+                        <td>Offline</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>AA Batteries</td>
+                        <td>8</td>
+                        <td>180</td>
+                        <td><a href="https://postimg.cc/Thm3TMnV" class="bill-link" target="_blank">View Bill</a></td>
+                        <td>Offline</td>
+                    </tr>
+                    <tr class="total">
+                        <td colspan="3">Total</td>
+                        <td>₹35309</td>
+                        <td colspan="2"></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
+        <div class="table-container" id="student-contribution-table">
+            <h3>Student Contribution List</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Name of the Student</th>
+                        <th>Status of Payment</th>
+                        <th>Amount Paid</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Vivek Gandam</td>
+                        <td>PAID</td>
+                        <td>₹2000</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>D. Ashrith</td>
+                        <td>PAID</td>
+                        <td>₹2000</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>P. Arun</td>
+                        <td>PAID</td>
+                        <td>₹2000</td>
+                    </tr>
+                    <!-- Add remaining rows as necessary -->
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <footer class="footer">
