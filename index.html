@@ -1,335 +1,336 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EEE Lawn Mower</title>
     <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-
-      html,
-      body {
-        width: 100%;
-        min-height: 100vh;
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-        font-family: 'Arial', sans-serif;
-      }
-
-      body {
-        display: flex;
-        flex-direction: column;
-        background-color: #f5f5f5;
-      }
-
-      header,
-      footer {
-        background-color: #2a8f83;
-        color: white;
-        text-align: center;
-        padding: 20px;
-      }
-
-      header {
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      }
-
-      footer {
-        font-size: 14px;
-      }
-
-      .container {
-        width: 100%;
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 30px 15px;
-      }
-
-      h1,
-      h2,
-      h3 {
-        margin-bottom: 20px;
-        color: #333;
-      }
-
-      .main-content {
-        display: flex;
-        justify-content: space-around;
-        margin-bottom: 40px;
-        gap: 30px;
-      }
-
-      .box {
-        background-color: #fff;
-        border-radius: 8px;
-        padding: 20px;
-        width: 45%;
-        text-align: center;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.3s ease;
-      }
-
-      .box:hover {
-        background-color: #e3f8f1;
-        transform: scale(1.05);
-      }
-
-      .updates {
-        text-align: center;
-        margin-bottom: 40px;
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 20px;
-      }
-
-      .box-container {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 40px;
-        gap: 30px;
-      }
-
-      .component-purchases,
-      .student-contribution {
-        width: 45%;
-        background-color: #fff;
-        padding: 20px;
-        text-align: center;
-        border-radius: 8px;
-        cursor: pointer;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: background-color 0.3s ease;
-      }
-
-      .component-purchases:hover,
-      .student-contribution:hover {
-        background-color: #e3f8f1;
-      }
-
-      .table-container {
-        margin-top: 30px;
-        display: none;
-      }
-
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-      }
-
-      th,
-      td {
-        padding: 12px;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-      }
-
-      th {
-        background-color: #2f4f4f;
-        color: white;
-      }
-
-      td {
-        background-color: #f9f9f9;
-      }
-
-      tr:hover td {
-        background-color: #e3f8f1;
-      }
-
-      .total td {
-        font-weight: bold;
-        color: #2a8f83;
-      }
-
-      a {
-        color: #007bff;
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      @media (max-width: 768px) {
-        .main-content {
-          flex-direction: column;
-          gap: 20px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .box,
+        html, body {
+            width: 100%;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            background-color: #f5f5f5;
+        }
+
+        header, footer {
+            background-color: #2a8f83;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        footer {
+            font-size: 14px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 15px;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            gap: 30px;
+        }
+
+        .box {
+            background-color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            width: 45%;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: relative;
+        }
+
+        .box:hover {
+            background-color: #e3f8f1;
+            transform: scale(1.05);
+        }
+
+        .updates {
+            text-align: center;
+            margin-bottom: 40px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            gap: 30px;
+        }
+
         .component-purchases,
         .student-contribution {
-          width: 100%;
+            width: 45%;
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
         }
-      }
+
+        .component-purchases:hover,
+        .student-contribution:hover {
+            background-color: #e3f8f1;
+        }
+
+        .table-container {
+            margin-top: 30px;
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #2f4f4f;
+            color: white;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover td {
+            background-color: #e3f8f1;
+        }
+
+        .total td {
+            font-weight: bold;
+            color: #2a8f83;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .box,
+            .component-purchases,
+            .student-contribution {
+                width: 100%;
+            }
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <header>
-      <h1>Electrification of Lawn Mower</h1>
+        <h1>Electrification of Lawn Mower</h1>
     </header>
 
     <div class="container">
-      <!-- Home Page with Boxes -->
-      <div class="main-content">
-        <div class="box" id="remote-lawnmower">
-          <h2>Remote Controlled Lawn Mower for Tejas</h2>
-        </div>
-        <div class="box" id="autonomous-lawnmower">
-          <h2>Autonomous Lawn Mower for Mini Project</h2>
-        </div>
-      </div>
-
-      <!-- Updates Section -->
-      <div class="updates">
-        <h3>Updates</h3>
-        <p>Next Payment for Framework is due on 1-1-25.</p>
-        <p><strong>Estimated Budget for Project: </strong>₹54,000</p>
-        <p><strong>Amount Collected Till Date: </strong>₹41,000</p>
-        <p><strong>Amount Spent on Purchases: </strong>₹XX,XXX</p>
-        <p><strong>Amount in Hand: </strong>₹XX,XXX</p>
-      </div>
-
-      <!-- Phase 1 Content -->
-      <div id="phase1" class="center-content">
-        <h2>Phase One of Lawn Mower</h2>
-        <h2>Amount allocated: ₹44,000</h2>
-        <p>What are you looking for?</p>
-
-        <div class="box-container">
-          <div class="component-purchases" id="component-purchases">
-            <h3>Component Purchases</h3>
-          </div>
-          <div class="student-contribution" id="student-contribution">
-            <h3>Student Contribution List</h3>
-          </div>
+        <!-- Home Page with Boxes -->
+        <div class="main-content">
+            <div class="box" id="remote-lawnmower">
+                <h2>Remote Controlled Lawn Mower for Tejas</h2>
+            </div>
+            <div class="box" id="autonomous-lawnmower">
+                <h2>Autonomous Lawn Mower for Mini Project</h2>
+            </div>
         </div>
 
-        <!-- Purchases Tables -->
-        <div class="table-container" id="purchase-table">
-          <h3>Component Purchases</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>S.no</th>
-                <th>Item</th>
-                <th>QTY</th>
-                <th>Amount (₹)</th>
-                <th>Bill</th>
-                <th>Mode of Payment</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Motors</td>
-                <td>2</td>
-                <td>6419</td>
-                <td><a href="https://postimg.cc/CzqkyQxX" target="_blank">View Bill</a></td>
-                <td>Online</td>
-              </tr>
-              <!-- Additional rows as in original -->
-              <tr class="total"><td colspan="5">Total</td><td>₹35,309</td></tr>
-            </tbody>
-          </table>
+        <!-- Updates Section -->
+        <div class="updates">
+            <h3>Updates</h3>
+            <p>Next Payment for Framework is due on 1-1-25.</p>
+            <p><strong>Estimated Budget for Project: </strong>₹54,000</p>
+            <p><strong>Amount Collected Till Date: </strong>₹41,000</p>
+            <p><strong>Amount Spent on Purchases: </strong>₹XX,XXX</p>
+            <p><strong>Amount in Hand: </strong>₹XX,XXX</p>
         </div>
 
-        <!-- Student Contribution Table -->
-        <div class="table-container" id="student-contribution-table">
-          <h3>Student Contribution List</h3>
-          <table>
-              <thead>
-                  <tr>
-                      <th>S.No.</th>
-                      <th>Name of the Student</th>
-                      <th>Status of Payment</th>
-                      <th>Amount Paid</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  <tr>
-                      <td>1</td>
-                      <td>Student 1</td>
-                      <td>PAID</td>
-                      <td>₹2000</td>
-                  </tr>
-                  <tr>
-                      <td>2</td>
-                      <td>Student 2</td>
-                      <td>PAID</td>
-                      <td>₹3000</td>
-                  </tr>
-                  <!-- Add more rows as needed -->
-              </tbody>
-          </table>
-        </div>
-      </div>
+        <!-- Phase 1 Content -->
+        <div id="phase1" class="center-content">
+            <h2>Phase One of Lawn Mower</h2>
+            <h2>Amount allocated: ₹44,000</h2>
+            <p>What are you looking for?</p>
 
-      <!-- Phase 2 Content -->
-      <div id="phase2" class="center-content">
-        <h2>Phase Two of Lawn Mower</h2>
-        <h2>Amount Allocated: ₹10,000</h2>
-        <p>What are you looking for?</p>
+            <div class="box-container">
+                <div class="component-purchases" id="component-purchases">
+                    <h3>Component Purchases</h3>
+                </div>
+                <div class="student-contribution" id="student-contribution">
+                    <h3>Student Contribution List</h3>
+                </div>
+            </div>
 
-        <div class="box-container">
-          <div class="component-purchases">
-            <h3>Component Purchases</h3>
-            <p>Will be updated soon!</p>
-          </div>
-          <div class="student-contribution">
-            <h3>Student Contribution List</h3>
-            <p>Will be updated soon!</p>
-          </div>
+            <!-- Purchases Tables -->
+            <div class="table-container" id="purchase-table">
+                <h3>Component Purchases</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>S.no</th>
+                            <th>Item</th>
+                            <th>QTY</th>
+                            <th>Amount (₹)</th>
+                            <th>Bill</th>
+                            <th>Mode of Payment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Motors</td>
+                            <td>2</td>
+                            <td>6419</td>
+                            <td><a href="https://postimg.cc/CzqkyQxX" target="_blank">View Bill</a></td>
+                            <td>Online</td>
+                        </tr>
+                        <tr>
+                            <td class="total" colspan="4">Total</td>
+                            <td>₹35,309</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Student Contribution Table -->
+            <div class="table-container" id="student-contribution-table">
+                <h3>Student Contribution List</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>S.No.</th>
+                            <th>Name of the Student</th>
+                            <th>Status of Payment</th>
+                            <th>Amount Paid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Student 1</td>
+                            <td>PAID</td>
+                            <td>₹2000</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Student 2</td>
+                            <td>PAID</td>
+                            <td>₹3000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-      </div>
+
+        <!-- Phase 2 Content -->
+        <div id="phase2" class="center-content">
+            <h2>Phase Two of Lawn Mower</h2>
+            <h2>Amount Allocated: ₹10,000</h2>
+            <p>What are you looking for?</p>
+
+            <div class="box-container">
+                <div class="component-purchases">
+                    <h3>Component Purchases</h3>
+                    <p>Will be updated soon!</p>
+                </div>
+                <div class="student-contribution">
+                    <h3>Student Contribution List</h3>
+                    <p>Will be updated soon!</p>
+                </div>
+            </div>
+        </div>
     </div>
 
     <footer>
-      <p>XBRO &copy; 2024-25</p>
+        <p>XBRO &copy; 2024-25</p>
     </footer>
 
     <script>
-      // Initially hide phase content
-      document.getElementById("phase1").style.display = "none";
-      document.getElementById("phase2").style.display = "none";
-
-      // Show Phase 1 when Remote Controlled Lawn Mower is clicked
-      document.getElementById("remote-lawnmower").addEventListener("click", function () {
-        document.getElementById("phase1").style.display = "block";
-        document.getElementById("phase2").style.display = "none";
-      });
-
-      // Show Phase 2 when Autonomous Lawn Mower is clicked
-      document.getElementById("autonomous-lawnmower").addEventListener("click", function () {
-        document.getElementById("phase2").style.display = "block";
+        // Initially hide phase content
         document.getElementById("phase1").style.display = "none";
-      });
+        document.getElementById("phase2").style.display = "none";
 
-      // Show the table when Component Purchases is clicked
-      document.getElementById("component-purchases").addEventListener("click", function () {
-        document.getElementById("purchase-table").style.display = "block";
-      });
-
-      // Show the table when Student Contribution is clicked
-      document.getElementById("student-contribution").addEventListener("click", function () {
-        const studentContributionTable = document.getElementById("student-contribution-table");
-        if (studentContributionTable.style.display === "none") {
-          studentContributionTable.style.display = "block";
-        } else {
-          studentContributionTable.style.display = "none"; // Toggle off if already displayed
+        // Function to scroll and display the corresponding phase
+        function showPhase(phaseId) {
+            document.getElementById("phase1").style.display = "none";
+            document.getElementById("phase2").style.display = "none";
+            document.getElementById(phaseId).style.display = "block";
+            document.getElementById(phaseId).scrollIntoView({ behavior: "smooth" });
         }
-      });
+
+        // Show Phase 1 when Remote Controlled Lawn Mower is clicked
+        document.getElementById("remote-lawnmower").addEventListener("click", function () {
+            showPhase("phase1");
+        });
+
+        // Show Phase 2 when Autonomous Lawn Mower is clicked
+        document.getElementById("autonomous-lawnmower").addEventListener("click", function () {
+            showPhase("phase2");
+        });
+
+        // Show the table when Component Purchases is clicked
+        document.getElementById("component-purchases").addEventListener("click", function () {
+            document.getElementById("purchase-table").style.display = "block";
+            document.getElementById("purchase-table").scrollIntoView({ behavior: "smooth" });
+        });
+
+        // Show the table when Student Contribution is clicked
+        document.getElementById("student-contribution").addEventListener("click", function () {
+            const studentContributionTable = document.getElementById("student-contribution-table");
+            if (studentContributionTable.style.display === "none") {
+                studentContributionTable.style.display = "block";
+            }
+            studentContributionTable.scrollIntoView({ behavior: "smooth" });
+        });
     </script>
-  </body>
+</body>
 </html>
