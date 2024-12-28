@@ -151,17 +151,14 @@
         <div class="updates">
             <h3>Project Updates</h3>
             <p>Next Payment for Framework is due on 1-1-25.</p>
-
-                 <p><strong> PHASE 1 </strong></p>
-                           <p><strong></strong></p>
-                  <p>Estimated Budget:₹54,000</p>
-                  <p>Amount Collected:₹36,000</p>
-                <p>Amount Spent on Purchases:₹35,896</p>
-                     <p>Amount in Hand:₹104</p>
-                     <p><strong> </strong></p>
-                     <p><strong> PHASE 2 </strong></p>
-                 <p>Amount Collected (Phase 2):₹7000</p>
-              <p>Amount Spent on Purchases (Phase 2):₹0</p>
+            <p><strong>PHASE 1</strong></p>
+            <p>Estimated Budget: ₹54,000</p>
+            <p>Amount Collected: ₹36,000</p>
+            <p>Amount Spent on Purchases: ₹35,896</p>
+            <p>Amount in Hand: ₹104</p>
+            <p><strong>PHASE 2</strong></p>
+            <p>Amount Collected (Phase 2): ₹7000</p>
+            <p>Amount Spent on Purchases (Phase 2): ₹0</p>
         </div>
 
         <div class="main-content">
@@ -368,7 +365,7 @@
         </div>
 
         <div class="table-container" id="student-contribution-table">
-            <h3>Student Contribution List</h3>
+            <h3>Student Contribution List (Autonomous Lawn Mower)</h3>
             <table>
                 <thead>
                     <tr>
@@ -521,7 +518,20 @@
             contributionTable.scrollIntoView({ behavior: "smooth" });
         });
 
-        // Add similar functions for Autonomous Lawn Mower when ready
+        // Similar functions for Autonomous Lawn Mower can be added
+        document.getElementById("show-autonomous-contributions").addEventListener("click", function (e) {
+            e.preventDefault();
+            const contributionTable = document.getElementById("student-contribution-table");
+            const purchaseTable = document.getElementById("purchase-table");
+            contributionTable.style.display = contributionTable.style.display === "block" ? "none" : "block";
+            purchaseTable.style.display = "none";
+            contributionTable.scrollIntoView({ behavior: "smooth" });
+        });
+
+        document.getElementById("show-autonomous-purchases").addEventListener("click", function (e) {
+            e.preventDefault();
+            // Implement logic for showing purchases table for Autonomous Lawn Mower
+        });
     </script>
 </body>
 
