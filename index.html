@@ -167,7 +167,7 @@
                 <h3>Remote Controlled Lawn Mower</h3>
                 <p>Phase 1 - TEJAS.</p>
                 <a href="#" class="button" id="show-purchases">Component Purchases</a>
-                <a href="#" class="button" id="show-contributions">Student Contribution List</a>
+                <a href="#" class="button" id="show-remote-contributions">Student Contribution List</a>
             </div>
 
             <div class="card" id="autonomous-lawnmower">
@@ -635,7 +635,7 @@
         });
 
         // Show the contribution table when the button is clicked for Remote Controlled Lawn Mower
-        document.getElementById("show-contributions").addEventListener("click", function (e) {
+        document.getElementById("show-remote-contributions").addEventListener("click", function (e) {
             e.preventDefault();
             const contributionTable = document.getElementById("student-contribution-table-remote");
             const purchaseTable = document.getElementById("purchase-table");
