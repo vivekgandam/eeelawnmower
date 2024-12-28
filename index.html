@@ -1,116 +1,422 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lawnmower Options</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EEE Lawn Mower Project</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
             overflow-x: hidden;
         }
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-        .clickable {
-            margin: 15px;
-            padding: 15px 30px;
-            background-color: #4CAF50;
-            color: white;
-            font-size: 18px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-        .clickable:hover {
-            background-color: #45a049;
-        }
-        .section {
-            display: none;
-            padding: 20px;
+
+        header {
+            background: linear-gradient(to right, #2a8f83, #007bb8);
+            color: #fff;
+            padding: 30px 0;
             text-align: center;
         }
-        .back-button {
-            margin-top: 20px;
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 10px 0;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px 15px;
+        }
+
+        .hero {
+            background: url('https://example.com/lawn-mower-hero.jpg') no-repeat center center/cover;
+            height: 300px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+        }
+
+        .hero h2 {
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 0;
+            padding: 0 20px; 
+            background: rgba(42, 143, 131, 0.7);
+            border-radius: 5px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: all 0.3s ease;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .button {
+            display: inline-block;
             padding: 10px 20px;
-            background-color: #f44336;
+            background-color: #007bb8;
+            color: #fff;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #005fa3;
+        }
+
+        .updates {
+            margin: 30px 0;
+            padding: 20px;
+            background: #e3f8f1;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .updates h3 {
+            color: #2a8f83;
+            margin-bottom: 15px;
+        }
+
+        .table-container {
+            margin-top: 30px;
+            display: none; /* Keep hidden by default */
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 2px solid #ddd;
+        }
+
+        th {
+            background-color: #2a8f83;
             color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
         }
-        .back-button:hover {
-            background-color: #d32f2f;
+
+        tr:hover td {
+            background-color: #e3f8f1;
         }
-        /* Responsive Design */
-        @media (min-width: 1024px) {
-            .container {
-                padding: 40px;
+
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #2a8f83;
+            color: white;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
             }
-            .clickable {
-                font-size: 20px;
-                padding: 20px 40px;
+            .hero h2 {
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container" id="main-container">
-        <button class="clickable" id="remote-button" onclick="showSection('remote')">Remote Controlled Lawnmower</button>
-        <button class="clickable" id="autonomous-button" onclick="showSection('autonomous')">Autonomous Lawnmower</button>
+    <header>
+        <h1>Electrification of Lawn Mower</h1>
+        <p>Innovative Solutions for Modern Lawn Care</p>
+    </header>
+
+    <div class="container">
+        <div class="hero">
+            <h2>Transforming Lawn Care with Technology</h2>
+        </div>
+
+        <div class="updates">
+            <h3>Project Updates</h3>
+            <p>Next Payment for Framework is due on 1-1-25.</p>
+            <p><strong>Estimated Budget for Project: </strong>₹54,000</p>
+            <p><strong>Amount Collected Till Date: </strong>₹36,000</p>
+            <p><strong>Amount Spent on Purchases: </strong>₹35,896</p>
+            <p><strong>Amount in Hand: </strong>₹104</p>
+        </div>
+
+        <div class="main-content">
+            <div class="card" id="remote-lawnmower">
+                <h3>Remote Controlled Lawn Mower</h3>
+                <p>Explore the innovative remote-controlled lawn mower technology.</p>
+                <a href="#" class="button">View Details</a>
+            </div>
+            <div class="card" id="autonomous-lawnmower">
+                <h3>Autonomous Lawn Mower</h3>
+                <p>Learn about our latest autonomous lawn mower project.</p>
+                <a href="#" class="button">View Details</a>
+            </div>
+        </div>
+
+        <!-- Phase 1 Content -->
+        <div id="phase1" class="center-content">
+            <div class="card">
+                <h2>Phase One of Lawn Mower</h2>
+                <p>Amount allocated: ₹44,000</p>
+
+                <div class="table-container" id="purchase-table">
+                    <h3>Component Purchases</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>S.no</th>
+                                <th>Item</th>
+                                <th>QTY</th>
+                                <th>Amount (₹)</th>
+                                <th>Bill</th>
+                                <th>Mode of Payment</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Motors</td>
+                                <td>2</td>
+                                <td>6419</td>
+                                <td><a href="https://postimg.cc/CzqkyQxX" target="_blank">View Bill</a></td>
+                                <td>Online</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Controller</td>
+                                <td>2</td>
+                                <td>1629</td>
+                                <td><a href="https://postimg.cc/N5m9C2Nw" target="_blank">View Bill</a></td>
+                                <td>Online</td>
+                                <tr><td>4</td><td>Petrol (Ranigunj)</td><td>-</td><td>150</td><td>-</td><td>Offline</td></tr>
+    <tr><td>5</td><td>Wheels</td><td>4</td><td>2540</td><td><a href="https://postimg.cc/qgCzgCHC" class="bill-link" target="_blank">View Bill</a></td><td>Offline</td></tr>
+    <tr><td>6</td><td>AA Batteries</td><td>8</td><td>180</td><td><a href="https://postimg.cc/Thm3TMnV" class="bill-link" target="_blank">View Bill</a></td><td>Offline</td></tr>
+    <tr><td>7</td><td>Framework</td><td>1</td><td>5000</td><td><a href="https://postimg.cc/6TdtDVNz" class="bill-link" target="_blank">View Bill</a></td><td>Online</td></tr>
+    <tr><td>8</td><td>Auto Charges</td><td>2</td><td>460</td><td><a href="https://postimg.cc/gallery/k4LND0z" class="bill-link" target="_blank">View Bill</a></td><td>Online</td></tr>
+    <tr><td>9</td><td>Servo Motor</td><td>2</td><td>200</td><td><a href="https://postimg.cc/jCZtxxLJ" class="bill-link" target="_blank">View Bill</a></td><td>Offline</td></tr>
+    <tr><td>10</td><td>Driver Board</td><td>2</td><td>700</td><td><a href="https://postimg.cc/jCZtxxLJ" class="bill-link" target="_blank">View Bill</a></td><td>Offline</td></tr>
+    <tr><td>11</td><td>5v Relay</td><td>1</td><td>150</td><td><a href="https://postimg.cc/jCZtxxLJ" class="bill-link" target="_blank">View Bill</a></td><td>Offline</td></tr>
+    <tr><td>12</td><td>Transmitter & Receiver</td><td>1</td><td>2650</td><td><a href="https://postimg.cc/fJ14yJZk" class="bill-link" target="_blank">View Bill</a></td><td>Offline</td></tr>
+    <tr><td>13</td><td>Petrol Expenses (Koti)</td><td>-</td><td>150</td><td><a href="https://postimg.cc/gallery/ct25Cmz" class="bill-link" target="_blank">View Bill</a></td><td>Online</td></tr>
+    <tr><td>14</td><td>AA Batteries</td><td>8</td><td>180</td><td><a href="https://postimg.cc/gallery/ct25Cmz" class="bill-link" target="_blank">View Bill</a></td><td>Online</td></tr>
+    <tr><td>15</td><td>Battery 2nd pay</td><td>-</td><td>9616</td><td><a href="https://postimg.cc/Bt1ssq9y" class="bill-link" target="_blank">View Bill</a></td><td>Online</td></tr>
+    <tr><td>16</td><td>Batttery Transport Charges</td><td>-</td><td>285</td><td><a href="https://postimg.cc/bGzmwhGs" class="bill-link" target="_blank">View Bill</a></td><td>Online</td></tr>
+  
+                            </tr>
+                            <tr class="total">
+                                <td colspan="3">Total</td>
+                                <td>₹35309</td>
+                                <td colspan="2"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="table-container" id="student-contribution-table">
+                    <h3>Student Contribution List</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>S.No.</th>
+                                <th>Name of the Student</th>
+                                <th>Status of Payment</th>
+                                <th>Amount Paid</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Vivek Gandam</td>
+                                <td>PAID</td>
+                                <td>₹2000</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>D. Ashrith</td>
+                                <td>PAID</td>
+                                <td>₹2000</td>
+                            </tr>
+                            
+                <td>3</td>
+                <td>P. Arun</td>
+                <td>PAID</td>
+                <td>₹2000</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>M. Bhanushreya</td>
+                <td>PAID</td>
+                <td>₹2000</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>U. Gowtham</td>
+                <td>PAID</td>
+                <td>₹2000</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Manaswini</td>
+                <td>PAID</td>
+                <td>₹2000</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Nadeem</td>
+                <td>PAID</td>
+                <td>₹2000</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>M. Sirisha</td>
+                <td>PAID</td>
+                <td>₹2000</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>A. Varshitha</td>
+                <td>PAID</td>
+                <td>₹2000</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Vinod</td>
+                <td>PAID</td>
+                <td>₹2000</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Vishalamrutha</td>
+                <td>PAID</td>
+                <td>₹2000</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>G. Harshitha</td>
+                <td>PAID</td>
+                <td>₹2000</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Jaheer Basha</td>
+                <td>PAID</td>
+                <td>₹2000</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>P. Michael</td>
+                <td>PAID</td>
+                <td>₹2000</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Narender</td>
+                <td>PAID</td>
+                <td>₹2000</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Sathwika</td>
+                <td>PAID</td>
+                <td>₹2000</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>Shivamani</td>
+                <td>PAID</td>
+                <td>₹2000</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>A. Varshika</td>
+                <td>PAID</td>
+                <td>₹2000</td>
+
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <a href="#" class="button" id="show-tables">Show Details</a>
+            </div>
+        </div>
+
+        <!-- Phase 2 Content -->
+        <div id="phase2" class="center-content">
+            <h2>Phase Two of Lawn Mower</h2>
+            <p>Amount Allocated: ₹10,000</p>
+            <p>What are you looking for?</p>
+            <p>Details coming soon!</p>
+        </div>
     </div>
 
-    <div class="section" id="remote-section">
-        <h1>Remote Controlled Lawnmower</h1>
-        <p>This section contains information about the Remote Controlled Lawnmower.</p>
-        <button class="back-button" onclick="goBack()">Back</button>
-    </div>
-
-    <div class="section" id="autonomous-section">
-        <h1>Autonomous Lawnmower</h1>
-        <p>This section contains information about the Autonomous Lawnmower.</p>
-        <button class="back-button" onclick="goBack()">Back</button>
-    </div>
+    <footer class="footer">
+        <p>XBRO &copy; 2024-25</p>
+    </footer>
 
     <script>
-        function showSection(type) {
-            // Hide both buttons
-            document.getElementById("remote-button").style.display = "none";
-            document.getElementById("autonomous-button").style.display = "none";
+        // Initially hide phase content
+        document.getElementById("phase1").style.display = "none";
+        document.getElementById("phase2").style.display = "none";
 
-            // Show the respective section
-            if (type === "remote") {
-                document.getElementById("remote-section").style.display = "block";
-            } else if (type === "autonomous") {
-                document.getElementById("autonomous-section").style.display = "block";
-            }
+        document.getElementById("purchase-table").style.display = "none"; // Keep hidden by default
+        document.getElementById("student-contribution-table").style.display = "none"; // Keep hidden by default
 
-            // Scroll to the section
-            setTimeout(() => {
-                document.getElementById(`${type}-section`).scrollIntoView({ behavior: "smooth" });
-            }, 100);
-        }
+        // Show Phase 1 and hide Phase 2 when Remote Controlled Lawn Mower is clicked
+        document.getElementById("remote-lawnmower").addEventListener("click", function () {
+            document.getElementById("phase1").style.display = "block";
+            document.getElementById("phase2").style.display = "none";
+            document.getElementById("purchase-table").style.display = "none"; // Hide tables initially
+            document.getElementById("student-contribution-table").style.display = "none"; // Hide tables initially
+            document.getElementById("phase1").scrollIntoView({ behavior: "smooth" });
+        });
 
-        function goBack() {
-            // Hide all sections
-            document.getElementById("remote-section").style.display = "none";
-            document.getElementById("autonomous-section").style.display = "none";
+        // Show Phase 2 and hide Phase 1 when Autonomous Lawn Mower is clicked
+        document.getElementById("autonomous-lawnmower").addEventListener("click", function () {
+            document.getElementById("phase2").style.display = "block";
+            document.getElementById("phase1").style.display = "none";
+            document.getElementById("phase2").scrollIntoView({ behavior: "smooth" });
+        });
 
-            // Show both buttons
-            document.getElementById("remote-button").style.display = "inline-block";
-            document.getElementById("autonomous-button").style.display = "inline-block";
-
-            // Scroll back to the top
-            setTimeout(() => {
-                document.getElementById("main-container").scrollIntoView({ behavior: "smooth" });
-            }, 100);
-        }
+        // Show the tables when button is clicked
+        document.getElementById("show-tables").addEventListener("click", function () {
+            const purchaseTable = document.getElementById("purchase-table");
+            const studentTable = document.getElementById("student-contribution-table");
+            purchaseTable.style.display = purchaseTable.style.display === "block" ? "none" : "block";
+            studentTable.style.display = studentTable.style.display === "block" ? "none" : "block";
+            purchaseTable.scrollIntoView({ behavior: "smooth" });
+        });
     </script>
 </body>
 </html>
