@@ -3,30 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lawnmower Selection</title>
+    <title>Lawnmower Options</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            overflow-x: hidden;
         }
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
         }
         .clickable {
-            display: inline-block;
-            margin: 20px;
-            padding: 20px 40px;
+            margin: 15px;
+            padding: 15px 30px;
             background-color: #4CAF50;
             color: white;
-            text-decoration: none;
             font-size: 18px;
-            border-radius: 10px;
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
         }
         .clickable:hover {
@@ -43,7 +42,7 @@
             background-color: #f44336;
             color: white;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
         }
         .back-button:hover {
@@ -52,69 +51,64 @@
         /* Responsive Design */
         @media (min-width: 1024px) {
             .container {
-                height: auto;
                 padding: 40px;
             }
             .clickable {
                 font-size: 20px;
-                padding: 20px 50px;
+                padding: 20px 40px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container" id="main-container">
-        <div id="buttons-container">
-            <div class="clickable" id="remote-lawnmower" onclick="showSection('remote')">Remote Controlled Lawnmower</div>
-            <div class="clickable" id="autonomous-lawnmower" onclick="showSection('autonomous')">Autonomous Lawnmower</div>
-        </div>
+        <button class="clickable" id="remote-button" onclick="showSection('remote')">Remote Controlled Lawnmower</button>
+        <button class="clickable" id="autonomous-button" onclick="showSection('autonomous')">Autonomous Lawnmower</button>
     </div>
 
     <div class="section" id="remote-section">
         <h1>Remote Controlled Lawnmower</h1>
-        <p>This is the information about the Remote Controlled Lawnmower.</p>
+        <p>This section contains information about the Remote Controlled Lawnmower.</p>
         <button class="back-button" onclick="goBack()">Back</button>
     </div>
 
     <div class="section" id="autonomous-section">
         <h1>Autonomous Lawnmower</h1>
-        <p>This is the information about the Autonomous Lawnmower.</p>
+        <p>This section contains information about the Autonomous Lawnmower.</p>
         <button class="back-button" onclick="goBack()">Back</button>
     </div>
 
     <script>
         function showSection(type) {
-            // Hide buttons container
-            document.getElementById('buttons-container').style.display = 'none';
+            // Hide both buttons
+            document.getElementById("remote-button").style.display = "none";
+            document.getElementById("autonomous-button").style.display = "none";
 
-            // Show respective section
-            if (type === 'remote') {
-                document.getElementById('remote-section').style.display = 'block';
-                document.getElementById('autonomous-lawnmower').style.display = 'none';
-            } else if (type === 'autonomous') {
-                document.getElementById('autonomous-section').style.display = 'block';
-                document.getElementById('remote-lawnmower').style.display = 'none';
+            // Show the respective section
+            if (type === "remote") {
+                document.getElementById("remote-section").style.display = "block";
+            } else if (type === "autonomous") {
+                document.getElementById("autonomous-section").style.display = "block";
             }
 
             // Scroll to the section
             setTimeout(() => {
-                document.getElementById(`${type}-section`).scrollIntoView({ behavior: 'smooth' });
+                document.getElementById(`${type}-section`).scrollIntoView({ behavior: "smooth" });
             }, 100);
         }
 
         function goBack() {
             // Hide all sections
-            document.getElementById('remote-section').style.display = 'none';
-            document.getElementById('autonomous-section').style.display = 'none';
+            document.getElementById("remote-section").style.display = "none";
+            document.getElementById("autonomous-section").style.display = "none";
 
-            // Show buttons container
-            document.getElementById('buttons-container').style.display = 'flex';
-            document.getElementById('remote-lawnmower').style.display = 'inline-block';
-            document.getElementById('autonomous-lawnmower').style.display = 'inline-block';
+            // Show both buttons
+            document.getElementById("remote-button").style.display = "inline-block";
+            document.getElementById("autonomous-button").style.display = "inline-block";
 
-            // Scroll to the top
+            // Scroll back to the top
             setTimeout(() => {
-                document.getElementById('main-container').scrollIntoView({ behavior: 'smooth' });
+                document.getElementById("main-container").scrollIntoView({ behavior: "smooth" });
             }, 100);
         }
     </script>
