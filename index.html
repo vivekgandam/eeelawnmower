@@ -365,7 +365,7 @@
             </table>
         </div>
 
-        <div class="table-container" id="student-contribution-table">
+        <div class="table-container" id="student-contribution-table-remote">
             <h3>Student Contribution List (Remote Controlled Lawn Mower)</h3>
             <table>
                 <thead>
@@ -488,6 +488,130 @@
                 </tbody>
             </table>
         </div>
+
+        <div class="table-container" id="student-contribution-table-autonomous">
+            <h3>Student Contribution List (Autonomous Lawn Mower)</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>S.No.</th>
+                        <th>Name of the Student</th>
+                        <th>Status of Payment</th>
+                        <th>Amount to be Paid</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Vivek Gandam</td>
+                        <td>PAID</td>
+                        <td>₹1000</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>D. Ashrith</td>
+                        <td>UNPAID</td>
+                        <td>₹1000</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>P. Arun</td>
+                        <td>UNPAID</td>
+                        <td>₹1000</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>M. Bhanushreya</td>
+                        <td>PAID</td>
+                        <td>₹1000</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>U. Gowtham</td>
+                        <td>UNPAID</td>
+                        <td>₹1000</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>Manaswini</td>
+                        <td>UNPAID</td>
+                        <td>₹1000</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>Nadeem</td>
+                        <td>UNPAID</td>
+                        <td>₹1000</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>M. Sirisha</td>
+                        <td>PAID</td>
+                        <td>₹1000</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>A. Varshitha</td>
+                        <td>PAID</td>
+                        <td>₹1000</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>Vinod</td>
+                        <td>PAID</td>
+                        <td>₹1000</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>Vishalamrutha</td>
+                        <td>UNPAID</td>
+                        <td>₹1000</td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>G. Harshitha</td>
+                        <td>UNPAID</td>
+                        <td>₹1000</td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>Jaheer Basha</td>
+                        <td>UNPAID</td>
+                        <td>₹1000</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>P. Michael</td>
+                        <td>UNPAID</td>
+                        <td>₹1000</td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>Narender</td>
+                        <td>UNPAID</td>
+                        <td>₹1000</td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>Sathwika</td>
+                        <td>PAID</td>
+                        <td>₹1000</td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>Shivamani</td>
+                        <td>UNPAID</td>
+                        <td>₹1000</td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>A. Varshika</td>
+                        <td>PAID</td>
+                        <td>₹1000</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <footer class="footer">
@@ -497,13 +621,14 @@
     <script>
         // Initially hide the table containers
         document.getElementById("purchase-table").style.display = "none";
-        document.getElementById("student-contribution-table").style.display = "none";
+        document.getElementById("student-contribution-table-remote").style.display = "none";
+        document.getElementById("student-contribution-table-autonomous").style.display = "none";
 
         // Show the purchase table when the button is clicked for Remote Controlled Lawn Mower
         document.getElementById("show-purchases").addEventListener("click", function (e) {
             e.preventDefault();
             const purchaseTable = document.getElementById("purchase-table");
-            const contributionTable = document.getElementById("student-contribution-table");
+            const contributionTable = document.getElementById("student-contribution-table-remote");
             purchaseTable.style.display = purchaseTable.style.display === "block" ? "none" : "block";
             contributionTable.style.display = "none"; 
             purchaseTable.scrollIntoView({ behavior: "smooth" });
@@ -512,17 +637,17 @@
         // Show the contribution table when the button is clicked for Remote Controlled Lawn Mower
         document.getElementById("show-contributions").addEventListener("click", function (e) {
             e.preventDefault();
-            const contributionTable = document.getElementById("student-contribution-table");
+            const contributionTable = document.getElementById("student-contribution-table-remote");
             const purchaseTable = document.getElementById("purchase-table");
             contributionTable.style.display = contributionTable.style.display === "block" ? "none" : "block";
             purchaseTable.style.display = "none"; 
             contributionTable.scrollIntoView({ behavior: "smooth" });
         });
 
-        // Similar functions for Autonomous Lawn Mower can be added
+        // Show the contribution table when the button is clicked for Autonomous Lawn Mower
         document.getElementById("show-autonomous-contributions").addEventListener("click", function (e) {
             e.preventDefault();
-            const contributionTable = document.getElementById("student-contribution-table");
+            const contributionTable = document.getElementById("student-contribution-table-autonomous");
             const purchaseTable = document.getElementById("purchase-table");
             contributionTable.style.display = contributionTable.style.display === "block" ? "none" : "block";
             purchaseTable.style.display = "none";
