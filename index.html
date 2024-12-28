@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>EEE Lawn Mower</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"> <!-- Google Fonts -->
     <style>
         * {
             margin: 0;
@@ -14,41 +15,73 @@
         html, body {
             width: 100%;
             min-height: 100vh;
-            margin: 0;
-            padding: 0;
             overflow-x: hidden;
-            font-family: 'Arial', sans-serif;
-            scroll-behavior: smooth; /* Smooth scrolling */
+            font-family: 'Roboto', sans-serif;
+            scroll-behavior: smooth;
         }
 
         body {
             display: flex;
             flex-direction: column;
-            background-color: #f5f5f5;
+            background-color: #f0f4f8;
+            color: #333;
         }
 
-        header, footer {
+        header {
             background-color: #2a8f83;
-            color: white;
+            color: #fff;
             text-align: center;
-            padding: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px 0;
+            position: relative;
         }
 
-        footer {
-            font-size: 14px;
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        header p {
+            font-size: 1.2rem;
         }
 
         .container {
             width: 100%;
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 30px 15px;
+            margin: auto;
+            padding: 20px 15px;
         }
 
-        h1, h2, h3 {
-            margin-bottom: 20px;
-            color: #333;
+        .hero-image {
+            background-image: url('https://example.com/lawn-mower.jpg'); /* Add a relevant image URL */
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(42, 143, 131, 0.7);
+            border-radius: 10px;
+        }
+
+        .hero-image h2 {
+            position: relative;
+            color: white;
+            font-size: 2rem;
+            font-weight: 600;
+            z-index: 1;
         }
 
         .main-content {
@@ -64,7 +97,7 @@
             padding: 20px;
             width: 45%;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.3s ease;
             position: relative;
@@ -72,15 +105,15 @@
 
         .box:hover {
             background-color: #e3f8f1;
-            transform: scale(1.05);
+            transform: translateY(-5px);
         }
 
         .updates {
             text-align: center;
             margin-bottom: 40px;
             background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             padding: 20px;
         }
 
@@ -99,7 +132,7 @@
             text-align: center;
             border-radius: 8px;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s ease;
         }
 
@@ -172,17 +205,12 @@
 <body>
     <header>
         <h1>Electrification of Lawn Mower</h1>
+        <p>Innovating the Future of Lawn Care</p>
     </header>
 
     <div class="container">
-        <!-- Home Page with Boxes -->
-        <div class="main-content">
-            <div class="box" id="remote-lawnmower">
-                <h2>Remote Controlled Lawn Mower for Tejas</h2>
-            </div>
-            <div class="box" id="autonomous-lawnmower">
-                <h2>Autonomous Lawn Mower for Mini Project</h2>
-            </div>
+        <div class="hero-image">
+            <h2>Transforming Lawn Care with Technology</h2>
         </div>
 
         <!-- Updates Section -->
@@ -225,29 +253,23 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                           <tr><td>1</td><td>Motors</td><td>2</td><td>6419</td><td><a href="https://postimg.cc/CzqkyQxX" target="_blank">View Bill</a></td><td>Online</td></tr>
-    <tr><td>2</td><td>Controller</td><td>2</td><td>1629</td><td><a href="https://postimg.cc/N5m9C2Nw" target="_blank">View Bill</a></td><td>Online</td></tr>
-    <tr><td>3</td><td>Battery (1st Pay)</td><td>-</td><td>5000</td><td><a href="https://postimg.cc/DJR0B7LZ" target="_blank">View Bill</a></td><td>Online</td></tr>
-    <tr><td>4</td><td>Petrol (Ranigunj)</td><td>-</td><td>150</td><td>-</td><td>Offline</td></tr>
-    <tr><td>5</td><td>Wheels</td><td>4</td><td>2540</td><td><a href="https://postimg.cc/qgCzgCHC" class="bill-link" target="_blank">View Bill</a></td><td>Offline</td></tr>
-    <tr><td>6</td><td>AA Batteries</td><td>8</td><td>180</td><td><a href="https://postimg.cc/Thm3TMnV" class="bill-link" target="_blank">View Bill</a></td><td>Offline</td></tr>
-    <tr><td>7</td><td>Framework</td><td>1</td><td>5000</td><td><a href="https://postimg.cc/6TdtDVNz" class="bill-link" target="_blank">View Bill</a></td><td>Online</td></tr>
-    <tr><td>8</td><td>Auto Charges</td><td>2</td><td>460</td><td><a href="https://postimg.cc/gallery/k4LND0z" class="bill-link" target="_blank">View Bill</a></td><td>Online</td></tr>
-    <tr><td>9</td><td>Servo Motor</td><td>2</td><td>200</td><td><a href="https://postimg.cc/jCZtxxLJ" class="bill-link" target="_blank">View Bill</a></td><td>Offline</td></tr>
-    <tr><td>10</td><td>Driver Board</td><td>2</td><td>700</td><td><a href="https://postimg.cc/jCZtxxLJ" class="bill-link" target="_blank">View Bill</a></td><td>Offline</td></tr>
-    <tr><td>11</td><td>5v Relay</td><td>1</td><td>150</td><td><a href="https://postimg.cc/jCZtxxLJ" class="bill-link" target="_blank">View Bill</a></td><td>Offline</td></tr>
-    <tr><td>12</td><td>Transmitter & Receiver</td><td>1</td><td>2650</td><td><a href="https://postimg.cc/fJ14yJZk" class="bill-link" target="_blank">View Bill</a></td><td>Offline</td></tr>
-    <tr><td>13</td><td>Petrol Expenses (Koti)</td><td>-</td><td>150</td><td><a href="https://postimg.cc/gallery/ct25Cmz" class="bill-link" target="_blank">View Bill</a></td><td>Online</td></tr>
-    <tr><td>14</td><td>AA Batteries</td><td>8</td><td>180</td><td><a href="https://postimg.cc/gallery/ct25Cmz" class="bill-link" target="_blank">View Bill</a></td><td>Online</td></tr>
-    <tr><td>15</td><td>Battery 2nd pay</td><td>-</td><td>9616</td><td><a href="https://postimg.cc/Bt1ssq9y" class="bill-link" target="_blank">View Bill</a></td><td>Online</td></tr>
-    <tr><td>16</td><td>Batttery Transport Charges</td><td>-</td><td>285</td><td><a href="https://postimg.cc/bGzmwhGs" class="bill-link" target="_blank">View Bill</a></td><td>Online</td></tr>
-  
-                        </tr>
-                        <tr>
-                            <td class="total" colspan="4">Total</td>
-                            <td>₹35,309</td>
-                        </tr>
+                        <tr><td>1</td><td>Motors</td><td>2</td><td>6419</td><td><a href="https://postimg.cc/CzqkyQxX" target="_blank">View Bill</a></td><td>Online</td></tr>
+                        <tr><td>2</td><td>Controller</td><td>2</td><td>1629</td><td><a href="https://postimg.cc/N5m9C2Nw" target="_blank">View Bill</a></td><td>Online</td></tr>
+                        <tr><td>3</td><td>Battery (1st Pay)</td><td>-</td><td>5000</td><td><a href="https://postimg.cc/DJR0B7LZ" target="_blank">View Bill</a></td><td>Online</td></tr>
+                        <tr><td>4</td><td>Petrol (Ranigunj)</td><td>-</td><td>150</td><td>-</td><td>Offline</td></tr>
+                        <tr><td>5</td><td>Wheels</td><td>4</td><td>2540</td><td><a href="https://postimg.cc/qgCzgCHC" target="_blank">View Bill</a></td><td>Offline</td></tr>
+                        <tr><td>6</td><td>AA Batteries</td><td>8</td><td>180</td><td><a href="https://postimg.cc/Thm3TMnV" target="_blank">View Bill</a></td><td>Offline</td></tr>
+                        <tr><td>7</td><td>Framework</td><td>1</td><td>5000</td><td><a href="https://postimg.cc/6TdtDVNz" target="_blank">View Bill</a></td><td>Online</td></tr>
+                        <tr><td>8</td><td>Auto Charges</td><td>2</td><td>460</td><td><a href="https://postimg.cc/gallery/k4LND0z" target="_blank">View Bill</a></td><td>Online</td></tr>
+                        <tr><td>9</td><td>Servo Motor</td><td>2</td><td>200</td><td><a href="https://postimg.cc/jCZtxxLJ" target="_blank">View Bill</a></td><td>Offline</td></tr>
+                        <tr><td>10</td><td>Driver Board</td><td>2</td><td>700</td><td><a href="https://postimg.cc/jCZtxxLJ" target="_blank">View Bill</a></td><td>Offline</td></tr>
+                        <tr><td>11</td><td>5v Relay</td><td>1</td><td>150</td><td><a href="https://postimg.cc/jCZtxxLJ" target="_blank">View Bill</a></td><td>Offline</td></tr>
+                        <tr><td>12</td><td>Transmitter & Receiver</td><td>1</td><td>2650</td><td><a href="https://postimg.cc/fJ14yJZk" target="_blank">View Bill</a></td><td>Offline</td></tr>
+                        <tr><td>13</td><td>Petrol Expenses (Koti)</td><td>-</td><td>150</td><td><a href="https://postimg.cc/gallery/ct25Cmz" target="_blank">View Bill</a></td><td>Online</td></tr>
+                        <tr><td>14</td><td>AA Batteries</td><td>8</td><td>180</td><td><a href="https://postimg.cc/gallery/ct25Cmz" target="_blank">View Bill</a></td><td>Online</td></tr>
+                        <tr><td>15</td><td>Battery 2nd pay</td><td>-</td><td>9616</td><td><a href="https://postimg.cc/Bt1ssq9y" target="_blank">View Bill</a></td><td>Online</td></tr>
+                        <tr><td>16</td><td>Batttery Transport Charges</td><td>-</td><td>285</td><td><a href="https://postimg.cc/bGzmwhGs" target="_blank">View Bill</a></td><td>Online</td></tr>
+                        <tr><td class="total" colspan="4">Total</td><td>₹35,309</td>
                     </tbody>
                 </table>
             </div>
@@ -255,134 +277,39 @@
             <!-- Student Contribution Table -->
             <div class="table-container" id="student-contribution-table">
                 <h3>Student Contribution List</h3>
-             
-                            <section class="payment-status">
-    <h2>Payment Details</h2>
-    <table border="1" cellpadding="5" cellspacing="0">
-        <thead>
-            <tr>
-                <th>S.No.</th>
-                <th>Name of the Student</th>
-                <th>Status of Payment</th>
-                <th>Amount Paid</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>1</td>
-                <td>Vivek Gandam</td>
-                <td>PAID</td>
-                <td>₹2000</td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>D. Ashrith</td>
-                <td>PAID</td>
-                <td>₹2000</td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>P. Arun</td>
-                <td>PAID</td>
-                <td>₹2000</td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>M. Bhanushreya</td>
-                <td>PAID</td>
-                <td>₹2000</td>
-            </tr>
-            <tr>
-                <td>5</td>
-                <td>U. Gowtham</td>
-                <td>PAID</td>
-                <td>₹2000</td>
-            </tr>
-            <tr>
-                <td>6</td>
-                <td>Manaswini</td>
-                <td>PAID</td>
-                <td>₹2000</td>
-            </tr>
-            <tr>
-                <td>7</td>
-                <td>Nadeem</td>
-                <td>PAID</td>
-                <td>₹2000</td>
-            </tr>
-            <tr>
-                <td>8</td>
-                <td>M. Sirisha</td>
-                <td>PAID</td>
-                <td>₹2000</td>
-            </tr>
-            <tr>
-                <td>9</td>
-                <td>A. Varshitha</td>
-                <td>PAID</td>
-                <td>₹2000</td>
-            </tr>
-            <tr>
-                <td>10</td>
-                <td>Vinod</td>
-                <td>PAID</td>
-                <td>₹2000</td>
-            </tr>
-            <tr>
-                <td>11</td>
-                <td>Vishalamrutha</td>
-                <td>PAID</td>
-                <td>₹2000</td>
-            </tr>
-            <tr>
-                <td>12</td>
-                <td>G. Harshitha</td>
-                <td>PAID</td>
-                <td>₹2000</td>
-            </tr>
-            <tr>
-                <td>13</td>
-                <td>Jaheer Basha</td>
-                <td>PAID</td>
-                <td>₹2000</td>
-            </tr>
-            <tr>
-                <td>14</td>
-                <td>P. Michael</td>
-                <td>PAID</td>
-                <td>₹2000</td>
-            </tr>
-            <tr>
-                <td>15</td>
-                <td>Narender</td>
-                <td>PAID</td>
-                <td>₹2000</td>
-            </tr>
-            <tr>
-                <td>16</td>
-                <td>Sathwika</td>
-                <td>PAID</td>
-                <td>₹2000</td>
-            </tr>
-            <tr>
-                <td>17</td>
-                <td>Shivamani</td>
-                <td>PAID</td>
-                <td>₹2000</td>
-            </tr>
-            <tr>
-                <td>18</td>
-                <td>A. Varshika</td>
-                <td>PAID</td>
-                <td>₹2000</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
-
-                        </tr>
-                    </tbody>
-                </table>
+                <section class="payment-status">
+                    <h2>Payment Details</h2>
+                    <table border="1" cellpadding="5" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>S.No.</th>
+                                <th>Name of the Student</th>
+                                <th>Status of Payment</th>
+                                <th>Amount Paid</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Vivek Gandam</td><td>PAID</td><td>₹2000</td></tr>
+                            <tr><td>2</td><td>D. Ashrith</td><td>PAID</td><td>₹2000</td></tr>
+                            <tr><td>3</td><td>P. Arun</td><td>PAID</td><td>₹2000</td></tr>
+                            <tr><td>4</td><td>M. Bhanushreya</td><td>PAID</td><td>₹2000</td></tr>
+                            <tr><td>5</td><td>U. Gowtham</td><td>PAID</td><td>₹2000</td></tr>
+                            <tr><td>6</td><td>Manaswini</td><td>PAID</td><td>₹2000</td></tr>
+                            <tr><td>7</td><td>Nadeem</td><td>PAID</td><td>₹2000</td></tr>
+                            <tr><td>8</td><td>M. Sirisha</td><td>PAID</td><td>₹2000</td></tr>
+                            <tr><td>9</td><td>A. Varshitha</td><td>PAID</td><td>₹2000</td></tr>
+                            <tr><td>10</td><td>Vinod</td><td>PAID</td><td>₹2000</td></tr>
+                            <tr><td>11</td><td>Vishalamrutha</td><td>PAID</td><td>₹2000</td></tr>
+                            <tr><td>12</td><td>G. Harshitha</td><td>PAID</td><td>₹2000</td></tr>
+                            <tr><td>13</td><td>Jaheer Basha</td><td>PAID</td><td>₹2000</td></tr>
+                            <tr><td>14</td><td>P. Michael</td><td>PAID</td><td>₹2000</td></tr>
+                            <tr><td>15</td><td>Narender</td><td>PAID</td><td>₹2000</td></tr>
+                            <tr><td>16</td><td>Sathwika</td><td>PAID</td><td>₹2000</td></tr>
+                            <tr><td>17</td><td>Shivamani</td><td>PAID</td><td>₹2000</td></tr>
+                            <tr><td>18</td><td>A. Varshika</td><td>PAID</td><td>₹2000</td></tr>
+                        </tbody>
+                    </table>
+                </section>
             </div>
         </div>
 
@@ -439,20 +366,18 @@
         });
 
         // Show the table when Student Contribution is clicked
-       // Show the table when Student Contribution is clicked
-document.getElementById("student-contribution").addEventListener("click", function () {
-    const studentContributionTable = document.getElementById("student-contribution-table");
-    
-    // Toggle visibility
-    if (studentContributionTable.style.display === "none" || studentContributionTable.style.display === "") {
-        studentContributionTable.style.display = "block";
-    } else {
-        studentContributionTable.style.display = "none"; // Toggle off if already displayed
-    }
-    studentContributionTable.scrollIntoView({ behavior: "smooth" }); // Scroll to the student contribution table
-});
+        document.getElementById("student-contribution").addEventListener("click", function () {
+            const studentContributionTable = document.getElementById("student-contribution-table");
 
-          
+            // Toggle visibility
+            if (studentContributionTable.style.display === "none" || studentContributionTable.style.display === "") {
+                studentContributionTable.style.display = "block";
+            } else {
+                studentContributionTable.style.display = "none"; // Toggle off if already displayed
+            }
+            studentContributionTable.scrollIntoView({ behavior: "smooth" }); // Scroll to the student contribution table
+        });
+
     </script>
 </body>
 </html>
